@@ -1,0 +1,5 @@
+1 - mysql, banco r3play
+2 - biblioteca ImageField
+3 - yum install libjpeg-devel
+4 - yum install PIL
+5 - 

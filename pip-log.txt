@@ -1,0 +1,48 @@
+Downloading/unpacking mysql
+  Getting page http://pypi.python.org/simple/mysql
+  Could not fetch URL http://pypi.python.org/simple/mysql: HTTP Error 404: Not Found (mysql does not have any releases)
+  Will skip URL http://pypi.python.org/simple/mysql when looking for download links for mysql
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for mysql:
+  * http://pypi.python.org/simple/mysql/
+  Getting page http://pypi.python.org/simple/mysql/
+  Could not fetch URL http://pypi.python.org/simple/mysql/: HTTP Error 404: Not Found (mysql does not have any releases)
+  Will skip URL http://pypi.python.org/simple/mysql/ when looking for download links for mysql
+  Could not find any downloads that satisfy the requirement mysql
+No distributions at all found for mysql
+Exception information:
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/Library/Python/2.7/site-packages/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/Library/Python/2.7/site-packages/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/Library/Python/2.7/site-packages/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for mysql
+------------------------------------------------------------
+/usr/local/bin/pip run on Tue Dec 20 16:43:22 2011
+Downloading/unpacking Mysql
+  Getting page http://pypi.python.org/simple/Mysql
+  Could not fetch URL http://pypi.python.org/simple/Mysql: HTTP Error 404: Not Found (Mysql does not have any releases)
+  Will skip URL http://pypi.python.org/simple/Mysql when looking for download links for Mysql
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for Mysql:
+  * http://pypi.python.org/simple/Mysql/
+  Getting page http://pypi.python.org/simple/Mysql/
+  Could not fetch URL http://pypi.python.org/simple/Mysql/: HTTP Error 404: Not Found (Mysql does not have any releases)
+  Will skip URL http://pypi.python.org/simple/Mysql/ when looking for download links for Mysql
+  Could not find any downloads that satisfy the requirement Mysql
+No distributions at all found for Mysql
+Exception information:
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/Library/Python/2.7/site-packages/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/Library/Python/2.7/site-packages/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/Library/Python/2.7/site-packages/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for Mysql
