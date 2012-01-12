@@ -28,12 +28,6 @@ obs.: se tornar usuário root: sudo su
 
 $ python manage.py runfcgi host=ec2-177-71-186-15.sa-east-1.compute.amazonaws.com port=8080 --settings=settings-production
 
-- HOSPEDAGEM AWS AMAZON
-https://console.aws.amazon.com/ec2/home
-
-Usuário: ir3play@gmail.com
-Senha: replaycom
-
 
 #########################
 
