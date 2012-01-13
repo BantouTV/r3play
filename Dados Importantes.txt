@@ -1,0 +1,5 @@
+- HOSPEDAGEM AWS AMAZON
+https://console.aws.amazon.com/ec2/home
+
+Usuário: ir3play@gmail.com
+Senha: replaycom

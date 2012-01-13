@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="pt-br" />
+<title>r3play</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="css/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="css/ie8.css" />
+<![endif]-->
+</head>
+
+<body class="tipo-02 ">
+	<div class="header">
+		<div class="container">
+			<h1 title="r3play"><a href="index.html">r3play</a></h1>
+			<form action="" class="form search_form">
+				<fieldset>
+    	        	<input type="text" value="usuário" class="search">
+        	       	<input type="image" src="img/btn_azul.png" alt="btn_azul" width="32" height="23" class="search_btn">
+       			</fieldset>
+       		</form>
+			<div class="disclaimer">As vezes para fazer as coisas certas, devemos desistir dos nossos sonhos. <span class="disclaimer_autor">Homem Aranha 2</span></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="container">
+			<ul class="main_menu">
+				<li><a href="#">Filmes</a></li>
+				<li><a href="#">Categorias</a></li>
+				<li><a href="#">Artistas</a></li>
+				<li><a href="#">Usuários</a></li>
+				<li class="last"><a href="#">Cinemas</a></li>
+			</ul>
+			<div class="mn_flut">
+				<ul>
+					<li><a href="#"><img src="img/mn_flut_fechar.png" alt="Fechar" title="Fechar" width="33" height="22"/></a></li>
+					<li><a href="#"><img src="img/mn_flut_recado.png" alt="Recados" title="Recado" width="33" height="30"/></a></li>
+					<li><a href="#"><img src="img/mn_flut_opcoes.png" alt="Opções" title="Opções" width="33" height="30"/></a></li>
+					<li><a href="#"><img src="img/mn_flut_estatistica.png" alt="Estatísticas" title="Estatistica" width="33" height="30"/></a></li>
+				</ul>
+			</div>
+			<div class="cont-branco mn_branco">
+				<div class="col-00">
+					<h4 class="title-01">Editar</h4>
+					
+					<div class="grid-01 form-style-01">
+						<div id="editar-col-01">
+							<p id="editar-cinema-logo">
+								<img src="img/logo_editar_cinema.jpg" alt="" />
+								<a href="">inserir logomarca</a>
+							</p>
+							<p><input type="text" name="" value="Site Oficial" class="textbox" /></p>
+							<p><input type="text" name="" value="Nome do Cinema *" class="textbox" /></p>
+							<p><input type="text" name="" value="Rede de Cinema *" class="textbox" /></p>
+							<p><input type="text" name="" value="CNPJ *" class="textbox" /></p>
+							<p>
+								<input type="text" name="" value="Nome do Responsável" class="textbox" />
+								<span class="obg">* Itens Obrigatórios</span>
+							</p>							
+						</div><!--/#editar-col-01-->
+						
+						<div id="editar-col-02">
+							<h4 class="title-02">Endereço</h4>
+							<p>
+								<input type="text" value="CEP" name="" class="textbox" />
+								<span class="obs">Para obter melhores resultados  e aconselhavél ulitizar corretamente o CEP.</span>
+							</p>
+							<p><input type="text" value="Endereço *" name="" class="textbox" /></p>
+							<p><input type="text" value="Complemento" name="" class="textbox" /></p>
+							<p><input type="text" value="Bairro" name="" class="textbox" /></p>
+							<p><input type="text" value="Cidade *" name="" class="textbox" /></p>
+							<p><select name="" id=""><option value="">Estado *</option></select></p>
+							<p>
+								<input type="text" value="DDD *" name="" class="textbox" style="width:46px" />
+								<input type="text" value="Telefone *" name="" class="textbox" style="width:163px" />
+							</p>
+							
+							<div class="checkbox-list-box-01">
+								<label for="">Cinema Oferece</label>
+								<p class="checkbox-list-p-01">
+									<label class="a"><input type="checkbox" value="" name="" class="checkbox" /> 2D</label>
+									<label class="b"><input type="checkbox" value="" name="" class="checkbox" /> 3D</label>
+									<label class="c"><input type="checkbox" value="" name="" class="checkbox" /> IMAX</label>
+								</p>
+								<p class="checkbox-list-p-02">
+									<label class="a"><input type="checkbox" value="" name="" class="checkbox" /> Pipoca</label>
+									<label class="b"><input type="checkbox" value="" name="" class="checkbox" /> Estacionamento Gratuito</label>
+									<label class="a"><input type="checkbox" value="" name="" class="checkbox" /> Pipoca</label>
+									<label class="b"><input type="checkbox" value="" name="" class="checkbox" /> Estacionamento Gratuito</label>
+									<label class="a"><input type="checkbox" value="" name="" class="checkbox" /> Pipoca</label>
+									<label class="b"><input type="checkbox" value="" name="" class="checkbox" /> Estacionamento Gratuito</label>
+									<label class="a"><input type="checkbox" value="" name="" class="checkbox" /> Pipoca</label>
+									<label class="b"><input type="checkbox" value="" name="" class="checkbox" /> Estacionamento Gratuito</label>
+								</p>							
+							</div>
+							
+							<p>
+								<button class="btnstyle-01">salvar</button>
+								<button class="btnstyle-02">editar</button>
+							</p>
+						</div><!--/#editar-col-02-->
+						
+						<div id="editar-col-03">
+							<div class="spacing">
+								<h4 class="title-02">Alterar Senha</h4>
+								
+								<p><input type="text" value="Senha Atual" name="" class="textbox size-01" /></p>
+								<p>
+									<input type="text" value="Nova Senha" name="" class="textbox size-01" />
+									<input type="text" value="Registrar Nova Senha" name="" class="textbox size-01" />
+								</p>
+								<p><button class="btnstyle-02">salvar</button></p>							
+							</div>
+							
+							<div>
+								<h4 class="title-02">Horários</h4>
+								<p>
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<button class="btnstlye-03">adicionar</button>
+								</p>
+								<p>
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<input type="text" value=":" name="" class="textbox size-02 aligncenter" />
+									<button class="btnstlye-03">adicionar</button>
+								</p>
+								
+								<div class="checkbox-list-box-02">
+									<p class="a">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="b">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="a">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="b">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="a">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="b">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="a">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="b">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+									<p class="a">
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+									</p>
+								</div><!--/.checkbox-list-box-02-->
+								
+								<p><button class="btnstyle-02">excluir</button></p>
+							</div>
+						</div><!--/#editar-col-03-->
+						
+					
+						<div id="editar-col-04">
+							<div class="spacing">
+								<h4 class="title-02">Valor do Ingresso <a href="" class="dropdown"></a></h4>
+								
+								<table id="tabela-valor-ingresso" cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th rowspan="2"><span class="a">Dia Promocional</span></th>
+											<th><span class="b">2D</span></th>
+											<th><span class="c">3D</span></th>
+											<th><span class="b">IMAX</span></th>
+											<th><span class="c">xD</span></th>
+										</tr>
+										<tr>
+											<th>
+												<span class="d">Matiné</span>
+												<span class="e">Noite</span>												
+											</th>
+											<th class="stripe">
+												<span class="d">Matiné</span>
+												<span class="e">Noite</span>												
+											</th>
+											<th>
+												<span class="d">Matiné</span>
+												<span class="e">Noite</span>												
+											</th>
+											<th class="stripe">
+												<span class="d">Matiné</span>
+												<span class="e">Noite</span>												
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="first"><select name="" id=""></select></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Segunda" name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Terça" name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Quarta" name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Quinta" name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Sex, Sab e Dom." name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+										<tr>
+											<td class="first"><input type="text" value="Feriados" name="" class="textbox" /></td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td>
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+											<td class="stripe">
+												<input type="text" value="" name="" class="textbox" />
+												<a href="" class="igual">=</a>
+												<input type="text" value="" name="" class="textbox" />
+											</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td colspan="2">												
+												<button class="btnstyle-01">salvar</button>
+												<button class="btnstyle-02">editar</button>
+											</td>
+											<td colspan="3" align="right">
+												As matinés tem sessões iniciadas até <input type="text" value=":" name="" class="textbox aligncenter" />
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+							
+							<div class="spacing">
+								<h4 class="title-02">Filmes em Exibição / Opções <a href="" class="dropdown"></a></h4>
+								
+								<div id="editar-col-05">
+									<div>
+										<label>Filme</label>
+										<select name="" id=""></select>
+									</div>
+									<div>
+										<label>Dia/Mês</label>
+										<input type="text" value="/ ao dia /" name="" class="textbox aligncenter" />
+									</div>
+									
+									<div>
+										<label>Projeção</label>
+										<div class="radio-list-box-01 inlineblock">
+											<label><input type="radio" value="" name="" class="radio" /> 2D</label>
+											<label><input type="radio" value="" name="" class="radio" /> 3D</label>
+											<label><input type="radio" value="" name="" class="radio" /> IMAX</label>
+										</div>
+									</div>
+									
+									<div>
+										<label>Audio</label>
+										<div class="radio-list-box-01 inlineblock">
+											<label><input type="radio" value="" name="" class="radio" /> Dublado</label>
+											<label><input type="radio" value="" name="" class="radio" /> Legendado</label>
+										</div>
+									</div>
+									
+									<div>
+										<label>Classificação</label>
+										<div class="radio-list-box-01 inlineblock">
+											<label><input type="radio" value="" name="" class="radio" /> 12a</label>
+											<label><input type="radio" value="" name="" class="radio" /> 14a</label>
+											<label><input type="radio" value="" name="" class="radio" /> 16a</label>
+											<label><input type="radio" value="" name="" class="radio" /> Livre</label>
+										</div>
+									</div>
+									
+									<div>
+										<label>Observações</label>
+										<input type="text" value="" name="" class="textbox" />
+									</div>
+								
+									<div class="checkbox-list-box-02">
+										<p class="a">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="b">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="a">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="b">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="a">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="b">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="a">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="b">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+										<p class="a">
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+											<label><input type="checkbox" value="" name="" class="checkbox" /> 14:30</label>
+										</p>
+									</div><!--/.checkbox-list-box-02-->							
+							
+									<div>
+										<button class="btnstyle-01">salvar</button>
+										<button class="btnstyle-02">editar</button>
+									</div>									
+								</div><!--/#editar-col-05-->
+								
+								<div id="editar-col-06">
+									<label>Selecione os filmes que deseja excluir nas caixas abaixo, para editar utilize o botão abaixo:</label>
+									
+									<div class="checkbox-list-box-03">
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+										<p class="a"><label><input type="checkbox" value="" name="" class="checkbox" /> Nova York Sitiada | Legendado</label></p>
+										<p class="b"><label><input type="checkbox" value="" name="" class="checkbox" /> O Homem Aranha 4 | Dublado</label></p>
+									</div>
+									
+									<div><button class="btnstyle-01">excluir</button></div>
+								</div><!--/#editar-col-06-->
+							</div>
+							
+							<div id="editar-programa-afiliados" class="spacing">
+								<h4 class="title-02">Programa de Afiliados <span>(?)</span> <a href="" class="dropdown"></a></h4>
+								
+								<div>
+									<label>Selecione abaixo os programas que deseja participar, e conheça outras opções logo abaixo:</label>
+									
+									<a href="" class="slct slct1"><span>Programa 01</span><b>?</b></a>
+									<a href="" class="slct slct2"><span>Programa 01</span><b>?</b></a>
+									<a href="" class="slct slct1"><span>Programa 01</span><b>?</b></a>
+									<a href="" class="slct slct2"><span>Programa 01</span><b>?</b></a>
+								</div>
+								
+								<div>
+									<label>Deseja participar do Programa de Afiliados?</label>
+									<div class="radio-list-box-01 size-03">
+										<label><input type="radio" value="" name="" class="radio" /> Sim <small>(recomendado)</small></label>
+										<label><input type="radio" value="" name="" class="radio" /> Não</label>									
+									</div>
+								</div>
+								
+								<div>
+									<label>Validade do Programa de Afiliados*?</label>
+									<div class="radio-list-box-01">
+										<label><input type="radio" value="" name="" class="radio" /> Todos os dias da semana.</label>
+										<label><input type="radio" value="" name="" class="radio" /> Dia Promocional</label>
+										<label><input type="radio" value="" name="" class="radio" /> Apenas finais de semana.</label>
+										<label><input type="radio" value="" name="" class="radio" /> Somente matinês.</label>
+									</div>
+								</div>								
+							
+								<div>
+									<button class="btnstyle-01">salvar</button>
+									<button class="btnstyle-02">editar</button>
+								</div>
+							</div>
+							
+						</div><!--/#editar-col-04-->
+					</div><!--/.grid-01-->
+				</div><!--/.col-00-->
+			</div>
+			<div class="footer">
+				<p><a href="#">R3PLAY</a> | <a href="#">TERMOS DE PRIVACIDADE E USO</a> | <a href="#">CONTATO</a><br/>&copy; 2007/2011 | r3play.com. Todos os Direitos Reservados. Patente Requerida.</p>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

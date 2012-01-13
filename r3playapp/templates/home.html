@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block titulo_da_pagina %}
+	Filmes
+{% endblock %}
+
+{% block conteudo %}
+
+			<ul class="main_menu">
+				<li><a href="#">Filmes</a></li>
+				<li><a href="#">Categorias</a></li>
+				<li><a href="#">Artistas</a></li>
+				<li><a href="#">Usuários</a></li>
+				<li class="last"><a href="#">Cinemas</a></li>
+			</ul>
+			
+			<div class="mn_flut">
+				<ul>
+					<li><a href="#"><img src="{{ STATIC_URL }}img/mn_flut_fechar.png" alt="Fechar" title="Fechar" width="33" height="22"/></a></li>
+					<li><a href="#"><img src="{{ STATIC_URL }}img/mn_flut_recado.png" alt="Recados" title="Recado" width="33" height="30"/></a></li>
+					<li><a href="#"><img src="{{ STATIC_URL }}img/mn_flut_opcoes.png" alt="Opções" title="Opções" width="33" height="30"/></a></li>
+					<li><a href="#"><img src="{{ STATIC_URL }}img/mn_flut_estatistica.png" alt="Estatísticas" title="Estatistica" width="33" height="30"/></a></li>
+				</ul>
+			</div>
+			
+			<div class="cont-branco mn_branco">
+				<div class="col-00">
+					<div class="cont-header">
+						<h2>Qual filme você quer assistir hoje?</h2>
+
+						<div class="estreias">
+							<h4>Explore</h4>
+							<ul>
+								<li><a href="#">Nacionais</a></li>
+								<li><a href="#">Oscar</a></li>
+								<li><a href="#">Trilogias</a></li>
+								<li><a href="#">Bilhereias</a></li>
+								<li class="last"><a href="#">Todos</a></li>
+							</ul>
+						</div>
+
+						<div class="box-options clear">
+							<div class="content">
+								<ul class="other-options">
+									<li><a href="#">Em Breve</a></li>
+									<li><a href="#">Cinema</a></li>
+									<li><a href="#">DVD & Blu-Ray</a></li>
+									<li class="last"><a href="#" class="selected">Todos</a></li>
+								</ul>
+								<ul class="submenu">
+									<li><select><option>ANO</option></select></li>
+									<li><select><option>GÊNEROS</option></select></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="films clear">
+							<div class="films-cont">
+								
+								{% for filme in lista_ultimos_filmes %}
+								<div class="film">
+									<img src="{{ STATIC_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" />
+									<span>
+										<b>{{ filme.titulo_nacional }}</b>
+										
+										{% for genero in filme.genero.all %}
+											<span>{{ genero }}</span>
+										{% endfor %}
+									</span>
+								</div>
+								{% endfor %}
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+{% endblock %}

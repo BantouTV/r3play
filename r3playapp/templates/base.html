@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="pt-br" />
+<title>r3play - {%block titulo_da_pagina %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/estilos.css" />
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ie8.css" />
+<![endif]-->
+</head>
+<body class="tipo-02 ">
+	
+	<!-- cabecalho -->
+	<div class="header">
+		<div class="container">
+			<h1 title="r3play"><a href="index.html">r3play</a></h1>
+			<form action="" class="form search_form">
+				<fieldset>
+    	        	<input type="text" value="usuário" class="search">
+        	       	<input type="image" src="{{ STATIC_URL }}img/btn_azul.png" alt="btn_azul" width="32" height="23" class="search_btn">
+       			</fieldset>
+       		</form>
+			<div class="disclaimer">As vezes para fazer as coisas certas, devemos desistir dos nossos sonhos. <span class="disclaimer_autor">Homem Aranha 2</span></div>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="container">
+	
+			{% block conteudo %}
+				
+			{% endblock %}
+	
+			<!-- rodape -->
+			<div class="footer">
+				<p><a href="#">R3PLAY</a> | <a href="#">TERMOS DE PRIVACIDADE E USO</a> | <a href="#">CONTATO</a><br/>&copy; 2007/2011 | r3play.com. Todos os Direitos Reservados. Patente Requerida.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

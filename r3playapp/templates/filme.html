@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{%block titulo_da_pagina %}
+	{{ filme.titulo_nacional }}
+{% endblock %}
+
+{% block conteudo %}
+	<h1>Detalhes de um filmes específico</h1>
+	<p>{{ filme }}</p>
+{% endblock %}
