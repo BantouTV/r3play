@@ -21,7 +21,7 @@ class Artistas(models.Model):
     pais                    = models.CharField(max_length = 100)
     cidade_natal            = models.CharField(max_length = 100, blank=True, null=True)
     #foto                    = models.ImageField(upload_to='upload/artistas/%Y/%m/%d')
-    foto                    = ImageWithThumbsField( upload_to='upload/artistas/%Y/%m/%d', sizes=((125,125),) )
+    foto                    = ImageWithThumbsField( upload_to='upload/artistas/%Y/%m/%d', sizes=((80,80),) )
     
     class Meta:
                    verbose_name_plural = "Artistas"
@@ -35,7 +35,7 @@ class Diretores(models.Model):
     pais                    = models.CharField(max_length = 100)
     cidade_natal            = models.CharField(max_length = 100, blank=True, null=True)
     #foto                    = models.ImageField(upload_to='upload/diretores/%Y/%m/%d')
-    foto                    = ImageWithThumbsField( upload_to='upload/diretores/%Y/%m/%d', sizes=((125,125),) )
+    foto                    = ImageWithThumbsField( upload_to='upload/diretores/%Y/%m/%d', sizes=((80,80),) )
     
     class Meta:
                    verbose_name_plural = "Diretores"
@@ -68,7 +68,7 @@ class Filmes(models.Model):
     artistas                = models.TextField()
     frases                  = models.TextField(blank=True, verbose_name='Frase')
     #capa                    = models.ImageField(upload_to='upload/filmes/%Y/%m/%d') 
-    capa                    = ImageWithThumbsField( upload_to='upload/filmes/%Y/%m/%d', sizes=((115,170),) )
+    capa                    = ImageWithThumbsField( upload_to='upload/filmes/%Y/%m/%d', sizes=((124,184),(115,70)) )
     origem                  = models.CharField(max_length = 50, choices=ORIGEM_ESCOLHAS, default='internacional')
     
     class Meta:
@@ -81,7 +81,8 @@ class Filmes(models.Model):
 class Categorias(models.Model):
     nome                    = models.CharField(max_length = 200)
     resenha                 = models.TextField()
-    foto                    = models.ImageField(upload_to='upload/categorias/%Y/%m/%d')
+    #foto                    = models.ImageField(upload_to='upload/categorias/%Y/%m/%d')
+    foto                    = ImageWithThumbsField( upload_to='upload/categorias/%Y/%m/%d', sizes=((186,155),) )
     filmes                  = models.ManyToManyField(Filmes)
 
     class Meta:
