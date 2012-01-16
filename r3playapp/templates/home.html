@@ -59,13 +59,13 @@
 								
 								{% for filme in lista_ultimos_filmes %}
 								<div class="film">
-									<img src="{{ STATIC_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" />
+									<img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" />
 									<span>
-										<b>{{ filme.titulo_nacional }}</b>
+										{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
+										<b>{{ filme.titulo_nacional|truncatewords:"2" }}</b>
 										
-										{% for genero in filme.genero.all %}
-											<span>{{ genero }}</span>
-										{% endfor %}
+										{# variavel|first --- exibe apenas o primeiro elemento da lista #}
+										<span>{{ filme.genero.all|first }}</span>
 									</span>
 								</div>
 								{% endfor %}
