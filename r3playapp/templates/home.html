@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block conteudo %}
-
 			<ul class="main_menu">
 				<li><a href="#">Filmes</a></li>
 				<li><a href="#">Categorias</a></li>
@@ -59,7 +58,7 @@
 								
 								{% for filme in lista_ultimos_filmes %}
 								<div class="film">
-									<img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" />
+									<a href="/filme/{{ filme.id }}"><img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
 									<span>
 										{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
 										<b>{{ filme.titulo_nacional|truncatewords:"2" }}</b>

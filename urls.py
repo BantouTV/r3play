@@ -13,5 +13,6 @@ urlpatterns = patterns('',
     
     url(r'^$', 'r3play.r3playapp.views.index', name='index'),
     url(r'^home/$', 'r3play.r3playapp.views.home', name='home'),
-    url(r'^filmes/(?P<filme_id>\d+)/$', 'r3play.r3playapp.views.filme', name='filme'),
+    url(r'^filme/(?P<filme_id>\d+)/$', 'r3play.r3playapp.views.filme', name='filme'),
+    url(r'^busca/$', 'r3play.r3playapp.views.busca', name='busca'),
 )

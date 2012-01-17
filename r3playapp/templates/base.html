@@ -17,22 +17,23 @@
 	<!-- cabecalho -->
 	<div class="header">
 		<div class="container">
-			<h1 title="r3play"><a href="index.html">r3play</a></h1>
-			<form action="" class="form search_form">
+			<h1 title="r3play"><a href="/home/">r3play</a></h1>
+			
+			<form action="/busca/" class="form search_form" method="get">
 				<fieldset>
-    	        	<input type="text" value="usuário" class="search">
+    	        	<input type="text" value="usuário" class="search" name="q">
         	       	<input type="image" src="{{ STATIC_URL }}img/btn_azul.png" alt="btn_azul" width="32" height="23" class="search_btn">
        			</fieldset>
        		</form>
+			
 			<div class="disclaimer">As vezes para fazer as coisas certas, devemos desistir dos nossos sonhos. <span class="disclaimer_autor">Homem Aranha 2</span></div>
 		</div>
 	</div>
 
 	<div class="content">
 		<div class="container">
-	
+			<!-- conteudo -->
 			{% block conteudo %}
-				
 			{% endblock %}
 	
 			<!-- rodape -->
