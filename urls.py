@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^busca/$', 'r3play.r3playapp.views.busca', name='busca'),
     url(r'^categorias/$', 'r3play.r3playapp.views.categorias', name='categorias'),
     url(r'^artistas/$', 'r3play.r3playapp.views.artistas', name='artistas'),
+    url(r'^artista/(?P<artista_id>\d+)/$', 'r3play.r3playapp.views.artista', name='artista'),
     url(r'^usuarios/$', 'r3play.r3playapp.views.usuarios', name='usuarios'),
     url(r'^cinemas/$', 'r3play.r3playapp.views.cinemas', name='cinemas'),
 )

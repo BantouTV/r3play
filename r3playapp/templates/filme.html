@@ -5,61 +5,57 @@
 {% endblock %}
 
 {% block conteudo %}
-
-<body class="tipo-02 ">
-	<div class="content">
-		<div class="container">
 			
-			<div class="cont-branco mn_branco">
-				<div class="tit_col-01">
+	<div class="cont-branco mn_branco">
+		<div class="tit_col-01">
 
-					<form action="" class="form form-padrao">
-			   			 <fieldset>
-			    			<div class="grid-12-12">
-			    				<a href="#" class="tit-select">etc</a>
-							</div>
-       					</fieldset>
-       				</form>
-
-       				<img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" width="135" height="200" />
-       				
-					<div class="termometro">
-	       				<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
-	       				<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
-       				</div>
-
-				</div>
-				
-				<div class="tit_col-02">
-					<div class="grid_col">
-						<h2 class="tit_filme">{{ filme.titulo_nacional }}</h2>
-						
-						<h3 class="sub_tit">{{ filme.titulo_original }}</h3>
-						
-						<p class="catg">
-							{% for genero in filme.genero.all %}
-								{{ genero }}, 
-							{% endfor %}
-						</p>
-					
-						<div class="acoes_filme">
-							<img src="{{ STATIC_URL }}img/favs.png" alt="favs" />
-						</div>
-					
-						<a href="#" class="p_assistir">Pretendo Assistir</a>
-					
-						<div class="sinopse clear">
-							<p>{{ filme.sinopse }}</p>
-						</div>
-					
-						<div class="ficha_tec">
-							<p><span>Diretor: </span>{{ filme.diretores }}</p>
-							<p><span>Elenco: </span>{{ filme.artistas }}</p>
-						</div>
+			<form action="" class="form form-padrao">
+	   			<fieldset>
+	    			<div class="grid-12-12">
+	    				<a href="#" class="tit-select">etc</a>
 					</div>
-					
-					<!-- comentarios -->
-				</div>
+     			</fieldset>
+     		</form>
 
+     		<img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" width="135" height="200" />
+     				
+			<div class="termometro">
+      			<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
+      			<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
+     		</div>
+
+		</div>
+		
+		<div class="tit_col-02">
+			<div class="grid_col">
+				<h2 class="tit_filme">{{ filme.titulo_nacional }}</h2>
+				
+				<h3 class="sub_tit">{{ filme.titulo_original }}</h3>
+				
+				<p class="catg">
+					{% for genero in filme.genero.all %}
+						{{ genero }}, 
+					{% endfor %}
+				</p>
+			
+				<div class="acoes_filme">
+					<img src="{{ STATIC_URL }}img/favs.png" alt="favs" />
+				</div>
+			
+				<a href="#" class="p_assistir">Pretendo Assistir</a>
+			
+				<div class="sinopse clear">
+					<p>{{ filme.sinopse }}</p>
+				</div>
+			
+				<div class="ficha_tec">
+					<p><span>Diretor: </span>{{ filme.diretores }}</p>
+					<p><span>Elenco: </span>{{ filme.artistas }}</p>
+				</div>
 			</div>
+			
+			<!-- comentarios -->
+		</div>
+
+	</div>
 {% endblock %}

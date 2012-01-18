@@ -1,4 +1,5 @@
 from r3play.r3playapp.models import Filmes
+from r3play.r3playapp.models import Artistas
 from r3play.r3playapp.utils import Util
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
@@ -37,7 +38,12 @@ def categorias(request):
     return HttpResponse("Categorias!")
     
 def artistas(request):
-    return HttpResponse("Artistas!")
+    lista_artistas = Artistas.objects.all()[:15]
+    return render_to_response('artistas.html', {'lista_artistas': lista_artistas}, context_instance=RequestContext(request))
+    
+def artista(request, artista_id):
+    artista = get_object_or_404(Artistas, id=artista_id)
+    return render_to_response('artista.html', {'artista': artista}, context_instance=RequestContext(request))
     
 def usuarios(request):
     return HttpResponse("Usuarios!")
