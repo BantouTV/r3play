@@ -42,7 +42,7 @@ class FilmesAdmin(admin.ModelAdmin):
                             )
             }),
         )
-    list_display            = ('titulo_nacional', 'titulo_original',)
+    list_display            = ('titulo_nacional', 'titulo_original', 'ano_lancamento')
     list_filter             = ('genero', 'estreia')
     search_fields           = ['titulo_original', 'titulo_nacional']
     radio_fields            = {"origem": admin.HORIZONTAL}

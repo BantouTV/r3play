@@ -9,53 +9,49 @@
 {% endblock %}
 
 {% block conteudo %}
-	<div class="cont-branco mn_branco">
-		<div class="col-00">
-			<div class="cont-header">
+	<div class="col-00">
+		<div class="cont-header">
 
-				{% if query %}
-				<div class="box-options clear">
-					<div class="content">
-						<ul class="other-options">
-							<li><a href="#">Resultados encontrados para </a> </li>
-							<li class="last"><a href="#" class="selected">"{{ query|escape }}"</a></li>
-						</ul>
-						<ul class="submenu">
-							<li><select><option>ANO</option></select></li>
-							<li><select><option>GÊNEROS</option></select></li>
-						</ul>
-					</div>
+			{% if query %}
+			<div class="box-options clear">
+				<div class="content">
+					<ul class="other-options">
+						<li><a href="#">Resultados encontrados para </a> </li>
+						<li class="last"><a href="#" class="selected">"{{ query|escape }}"</a></li>
+					</ul>
+					<ul class="submenu">
+						<li><select><option>ANO</option></select></li>
+						<li><select><option>GÊNEROS</option></select></li>
+					</ul>
 				</div>
-
-				<div class="films clear">
-					<div class="films-cont">
-						
-						{% if resultados %}
-							{% for filme in resultados %}
-							<div class="film">
-								<a href="/filme/{{ filme.id }}"><img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
-								<span>
-									{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
-									<b>{{ filme.titulo_nacional|truncatewords:"3" }}</b>
-								
-									{# variavel|first --- exibe apenas o primeiro elemento da lista #}
-									<span>{{ filme.genero.all|first }}</span>
-								</span>
-							</div>
-							{% endfor %}
-						{% else %}
-							<p style="color:black;">Nenhum filme encontrado.</p>
-							<p>&nbsp;</p>
-							<p>&nbsp;</p>
-						{% endif %}
-						
-					</div><!-- films-cont -->
-				</div><!-- films clear -->
-				{% endif %}
-				
 			</div>
+
+			<div class="films clear">
+				<div class="films-cont">
+					
+					{% if resultados %}
+						{% for filme in resultados %}
+						<div class="film">
+							<a href="/filme/{{ filme.id }}"><img src="{{ MEDIA_URL }}{{ filme.capa }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
+							<span>
+								{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
+								<b>{{ filme.titulo_nacional|truncatewords:"3" }}</b>
+							
+								{# variavel|first --- exibe apenas o primeiro elemento da lista #}
+								<span>{{ filme.genero.all|first }}</span>
+							</span>
+						</div>
+						{% endfor %}
+					{% else %}
+						<p style="color:black;">Nenhum filme encontrado.</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+					{% endif %}
+					
+				</div><!-- films-cont -->
+			</div><!-- films clear -->
+			{% endif %}
+			
 		</div>
 	</div>
-	
-
 {% endblock %}
