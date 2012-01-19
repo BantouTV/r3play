@@ -4,8 +4,11 @@
 	{{ filme.titulo_nacional }}
 {% endblock %}
 
+{% block frase %}
+	 {{ frase.frase }} <span class="disclaimer_autor">{{ frase.filme }}</span>
+{% endblock %}
+
 {% block conteudo %}
-			
 	<div class="cont-branco mn_branco">
 		<div class="tit_col-01">
 
@@ -34,7 +37,7 @@
 				
 				<p class="catg">
 					{% for genero in filme.genero.all %}
-						{{ genero }}, 
+						{{ genero }},  
 					{% endfor %}
 				</p>
 			

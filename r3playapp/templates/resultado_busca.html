@@ -4,15 +4,28 @@
 	Resultados de busca
 {% endblock %}
 
+{% block frase %}
+	 {{ frase.frase }} <span class="disclaimer_autor">{{ frase.filme }}</span>
+{% endblock %}
+
 {% block conteudo %}
-	
 	<div class="cont-branco mn_branco">
 		<div class="col-00">
 			<div class="cont-header">
 
-
 				{% if query %}
-				<h2>Resultados encontrados para "{{ query|escape }}":</h2>
+				<div class="box-options clear">
+					<div class="content">
+						<ul class="other-options">
+							<li><a href="#">Resultados encontrados para </a> </li>
+							<li class="last"><a href="#" class="selected">"{{ query|escape }}"</a></li>
+						</ul>
+						<ul class="submenu">
+							<li><select><option>ANO</option></select></li>
+							<li><select><option>GÊNEROS</option></select></li>
+						</ul>
+					</div>
+				</div>
 
 				<div class="films clear">
 					<div class="films-cont">
