@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-{% block titulo_da_pagina %}
-	Filmes
-{% endblock %}
+{% block titulo_da_pagina %}Filmes{% endblock %}
 
 {% block frase %}
 	 {{ frase.frase }} <span class="disclaimer_autor">{{ frase.filme }}</span>
@@ -28,14 +26,51 @@
 			<div class="box-options clear">
 				<div class="content">
 					<ul class="other-options">
-						<li><a href="#">Em Breve</a></li>
-						<li><a href="#">Cinema</a></li>
-						<li><a href="#">DVD & Blu-Ray</a></li>
-						<li class="last"><a href="#" class="selected">Todos</a></li>
+						{% if tipo == 'breve' %}
+							<li><a href="#" class="selected">Em Breve</a></li>
+						{% else %}
+							<li><a href="/home/?tipo=breve">Em Breve</a></li>
+						{% endif %}
+						
+						{% if tipo == 'cinema' %}
+							<li><a href="#" class="selected">Cinema</a></li>
+						{% else %}
+							<li><a href="/home/?tipo=cinema">Cinema</a></li>
+						{% endif %}
+						
+						{% if tipo == 'dvd' %}
+							<li><a href="#" class="selected">DVD & Blu-Ray</a></li>
+						{% else %}
+							<li><a href="/home/?tipo=dvd">DVD & Blu-Ray</a></li>
+						{% endif %}
+						
+						{% if tipo == 'todos' %}
+							<li class="last"><a href="#" class="selected">Todos</a></li>
+						{% else %}
+							<li class="last"><a href="/home/?tipo=todos">Todos</a></li>
+						{% endif %}
 					</ul>
 					<ul class="submenu">
-						<li><select><option>ANO</option></select></li>
-						<li><select><option>GÊNEROS</option></select></li>
+						<li>
+							<form name="ano" method="get" action="/home/">
+								<select id="filtro_ano" name="ano">
+									<option>ANO</option>
+									{% for ano in anos %}
+										<option value="{{ ano }}">{{ ano }}</option>
+									{% endfor %}
+								</select>
+							</form>
+						</li>
+						<li>
+							<form name="genero" method="get" action="/home/">
+								<select id="filtro_genero" name="genero">
+										<option>genero</option>
+									{% for genero in lista_generos %}
+										<option value="{{ genero }}">{{ genero }}</option>
+									{% endfor %}
+								</select>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>

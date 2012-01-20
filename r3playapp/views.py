@@ -1,5 +1,6 @@
 from r3play.r3playapp.models import Filmes
 from r3play.r3playapp.models import Artistas
+from r3play.r3playapp.models import Generos
 from r3play.r3playapp.utils import Util
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
@@ -12,12 +13,31 @@ def index(request):
     return render_to_response('index.html')
     
 def home(request):
-    lista_ultimos_filmes        = Filmes.objects.all()[:15]
     frase                       = util.frase_randomica()
+    lista_generos               = Generos.objects.all().order_by('nome')
+    filtro_genero               = request.GET.get('genero', '')
+    filtro_ano                  = request.GET.get('ano', '')
+    filtro_tipo                 = request.GET.get('tipo', '')
+    
+    # filtrando os resultados
+    if filtro_genero:
+        lista_ultimos_filmes        = Filmes.objects.all().filter(genero__nome__contains = filtro_genero)[:15]
+    elif filtro_ano:
+        lista_ultimos_filmes        = Filmes.objects.all().filter(ano_lancamento__exact = filtro_ano)[:15]
+    elif filtro_tipo:
+        if filtro_tipo == 'todos':
+            lista_ultimos_filmes        = Filmes.objects.all()[:15]
+        else :
+            lista_ultimos_filmes        = Filmes.objects.all().filter(tipo__contains = filtro_tipo)[:15]
+    else:
+        lista_ultimos_filmes        = Filmes.objects.all()[:15]
     
     return render_to_response('home.html', {
-                                        'lista_ultimos_filmes': lista_ultimos_filmes, 
-                                        'frase': frase
+                                        'lista_ultimos_filmes':         lista_ultimos_filmes, 
+                                        'frase':                        frase,
+                                        'lista_generos':                lista_generos,
+                                        'anos':                         range(2000,2013),
+                                        'tipo':                         filtro_tipo
                                         }, context_instance=RequestContext(request))
     
 def filme(request, filme_id):
