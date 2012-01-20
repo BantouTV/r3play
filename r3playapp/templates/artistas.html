@@ -51,7 +51,7 @@
 					<!-- artista -->
 					<div class="user">
 						<div class="img">
-							<a href="/artista/{{ artista.id }}"><img src="{{ MEDIA_URL }}{{ artista.foto }}" width="80" height="80" /></a>
+							<a href="/artista/{{ artista.id }}"><img src="{{ artista.foto.url_80x80 }}" width="80" height="80" /></a>
 						</div>
 						
 						<div class="info">
