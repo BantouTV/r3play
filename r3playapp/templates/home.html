@@ -66,7 +66,7 @@
 								<select id="filtro_genero" name="genero">
 										<option>genero</option>
 									{% for genero in lista_generos %}
-										<option value="{{ genero }}">{{ genero }}</option>
+										<option value="{{ genero.id }}">{{ genero }}</option>
 									{% endfor %}
 								</select>
 							</form>
