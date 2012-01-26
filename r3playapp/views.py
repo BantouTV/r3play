@@ -1,5 +1,6 @@
 from r3play.r3playapp.models import Filmes
 from r3play.r3playapp.models import Artistas
+from r3play.r3playapp.models import Diretores
 from r3play.r3playapp.models import Generos
 from r3play.r3playapp.utils import Util
 from django.template import RequestContext
@@ -11,7 +12,7 @@ util                            = Util()
 
 def index(request):
     return render_to_response('index.html')
-    
+
 def home(request):
     frase                       = util.frase_randomica()
     lista_generos               = Generos.objects.all().order_by('nome')
@@ -72,7 +73,7 @@ def categorias(request):
     return HttpResponse("Categorias!")
     
 def artistas(request):
-    lista_artistas              = Artistas.objects.all().order_by('nome')[:15]
+    lista_artistas              = Artistas.objects.all()
     frase                       = util.frase_randomica()
     
     return render_to_response('artistas.html', {
@@ -96,9 +97,36 @@ def artista(request, artista_id):
                                             'ultimo_filme': ultimo_filme, 
                                             'frase': frase
                                             }, context_instance=RequestContext(request))
+                                            
+def diretores(request):
+    lista_diretores             = Diretores.objects.all()
+    frase                       = util.frase_randomica()
+
+    return render_to_response('diretores.html', {
+                                            'lista_diretores': lista_diretores, 
+                                            'frase': frase
+                                            }, context_instance=RequestContext(request))
+
+def diretor(request, diretor_id):
+    diretor                     = get_object_or_404(Diretores, id=diretor_id)
+    filmes                      = Filmes.objects.filter(
+                                                            diretores__contains = diretor.nome
+                                                        ).order_by(
+                                                            'ano_lancamento'
+                                                        ).reverse()
+    ultimo_filme                = filmes[0] if filmes else None #retorna None se filmes estiver vazio
+    frase                       = util.frase_randomica()
+
+    return render_to_response('diretor.html', {
+                                            'diretor': diretor, 
+                                            'filmes': filmes, 
+                                            'ultimo_filme': ultimo_filme, 
+                                            'frase': frase
+                                            }, context_instance=RequestContext(request))
     
 def usuarios(request):
     return HttpResponse("Usuarios!")
     
 def cinemas(request):
     return HttpResponse("Cinemas")
+    
