@@ -2,4 +2,4 @@
 2 - biblioteca ImageField
 3 - yum install libjpeg-devel
 4 - yum install PIL
-5 - 
+5 - easy_install South

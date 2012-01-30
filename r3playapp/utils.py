@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from r3play.r3playapp.models import Filmes
+from r3play.r3playapp.models import Frases
 from random import choice
 
 class Util:
@@ -9,14 +9,8 @@ class Util:
         pass
         
     def frase_randomica(self):
-        lista_ultimos_filmes    = Filmes.objects.all()[:15]
-        filme_randomico         = choice(lista_ultimos_filmes)
-        
-        if filme_randomico.frases == '':
-            filme_randomico         = choice(lista_ultimos_filmes)
-        
-        frase                   = filme_randomico.frases
-        filme                   = filme_randomico.titulo_nacional
-        dados_escolhidos        = {'frase': frase, 'filme': filme}
+        lista_frases            = Frases.objects.all()
+        frase_aleatoria         = choice(lista_frases)
+        dados_escolhidos        = {'frase': frase_aleatoria.frase, 'filme': frase_aleatoria.filmes.all()[0]}
         
         return dados_escolhidos

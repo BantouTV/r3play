@@ -66,7 +66,8 @@ class Filmes(models.Model):
     genero                  = models.ManyToManyField(Generos)
     diretores               = models.CharField(max_length = 400)
     artistas                = models.TextField()
-    frases                  = models.TextField(blank=True, verbose_name='Frase')
+    #frases                  = models.TextField(blank=True, verbose_name='Frase')
+    trailer                 = models.TextField(blank=True, verbose_name='Trailer')
     #capa                    = models.ImageField(upload_to='upload/filmes/%Y/%m/%d') 
     capa                    = ImageWithThumbsField( upload_to='upload/filmes/%Y/%m/%d', sizes=((124,184),(115,70)) )
     origem                  = models.CharField(max_length = 50, choices=ORIGEM_ESCOLHAS, default='internacional')
@@ -90,3 +91,13 @@ class Categorias(models.Model):
 
     def __unicode__(self):
         return self.nome
+        
+class Frases(models.Model):
+    frase                   = models.TextField()
+    filmes                  = models.ManyToManyField( Filmes )
+    
+    class Meta:
+        verbose_name_plural = "Frases"
+    
+    def __unicode__(self):
+        return self.frase

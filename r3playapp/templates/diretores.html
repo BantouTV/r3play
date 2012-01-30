@@ -38,9 +38,30 @@
 					</ul>
 					
 					<ul class="submenu">
-						<li><select><option>NACIONALIDADE</option></select></li>
-						<li><select><option>A a Z</option></select></li>
+						<li>
+							<form name="nacionalidade" method="get" action="/diretores/">
+								<select id='filtro_nacionalidade' name='nacionalidade'>
+									<option>NACIONALIDADE</option>
+									<option value='todos'>todos</option>
+									{% for pais in paises %}
+										<option value='{{ pais }}'>{{ pais }}</option>
+									{% endfor %}
+								</select>
+							</form>
+						</li>
+						<li>
+							<form name="nacionalidade" method="get" action="/diretores/">
+								<select id='filtro_alfabeto' name='nome'>
+									<option>A a Z</option>
+									<option value='todos'>todos</option>
+									{% for letra in alfabeto %}
+										<option value='{{ letra }}'>{{ letra }}</option>
+									{% endfor %}
+								</select>
+							</form>
+						</li>
 					</ul>
+				</div>
 				</div>
 			</div> <!-- box-options clear -->
 			

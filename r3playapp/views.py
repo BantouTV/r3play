@@ -22,9 +22,15 @@ def home(request):
     
     # filtrando os resultados
     if filtro_genero:
-        lista_ultimos_filmes            = Filmes.objects.all().filter(genero__id__exact = filtro_genero)[:15]
+        if filtro_genero == 'todos':
+            lista_ultimos_filmes            = Filmes.objects.all()[:15]
+        else:
+            lista_ultimos_filmes            = Filmes.objects.all().filter(genero__id__exact = filtro_genero)[:15]
     elif filtro_ano:
-        lista_ultimos_filmes            = Filmes.objects.all().filter(ano_lancamento__exact = filtro_ano)[:15]
+        if filtro_ano == 'todos':
+            lista_ultimos_filmes            = Filmes.objects.all()[:15]
+        else:
+            lista_ultimos_filmes            = Filmes.objects.all().filter(ano_lancamento__exact = filtro_ano)[:15]
     elif filtro_tipo:
         if filtro_tipo == 'todos':
             lista_ultimos_filmes        = Filmes.objects.all()[:15]
@@ -75,10 +81,35 @@ def categorias(request):
 def artistas(request):
     lista_artistas              = Artistas.objects.all()
     frase                       = util.frase_randomica()
+    lista_artistas_por_pais     = lista_artistas.order_by('pais').distinct('pais')
+    lista_paises                = []
+    anterior                    = ''
+    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
+    filtro_nome                 = request.GET.get('nome', '')
+    codes                       = range(ord('a'), ord('z')+1)
+    alfabeto                    = []
+    
+    for code in codes:
+        alfabeto.append( chr(code) )
+    
+    for item in lista_artistas_por_pais: # separando apenas os nosmes de paises unicos
+        if item.pais != anterior:
+            lista_paises.append(item.pais)
+            anterior = item.pais
+    
+    if filtro_nacionalidade:
+        if filtro_nacionalidade != 'todos':
+            lista_artistas          = lista_artistas.filter( pais__contains = filtro_nacionalidade )
+    
+    if filtro_nome:
+        if filtro_nome != 'todos':
+            lista_artistas          = lista_artistas.filter( nome__istartswith = filtro_nome )
     
     return render_to_response('artistas.html', {
-                                            'lista_artistas': lista_artistas, 
-                                            'frase': frase
+                                            'lista_artistas':   lista_artistas, 
+                                            'frase':            frase,
+                                            'paises':           lista_paises,
+                                            'alfabeto':         alfabeto
                                             }, context_instance=RequestContext(request))
     
 def artista(request, artista_id):
@@ -101,10 +132,36 @@ def artista(request, artista_id):
 def diretores(request):
     lista_diretores             = Diretores.objects.all()
     frase                       = util.frase_randomica()
+    lista_diretores_por_pais    = lista_diretores.order_by('pais').distinct('pais')
+    lista_paises                = []
+    anterior                    = ''
+    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
+    filtro_nome                 = request.GET.get('nome', '')
+    codes                       = range(ord('a'), ord('z')+1)
+    alfabeto                    = []
+    
+    for code in codes:
+        alfabeto.append( chr(code) )
+    
+    for item in lista_diretores_por_pais: # separando apenas os nosmes de paises unicos
+        if item.pais != anterior:
+            lista_paises.append(item.pais)
+            anterior = item.pais
+    
+    if filtro_nacionalidade:
+        if filtro_nacionalidade != 'todos':
+            lista_diretores          = lista_diretores.filter( pais__contains = filtro_nacionalidade )
+    
+    if filtro_nome:
+        if filtro_nome != 'todos':
+            lista_diretores          = lista_diretores.filter( nome__istartswith = filtro_nome )
+    
 
     return render_to_response('diretores.html', {
-                                            'lista_diretores': lista_diretores, 
-                                            'frase': frase
+                                            'lista_diretores':      lista_diretores, 
+                                            'frase':                frase,
+                                            'paises':               lista_paises,
+                                            'alfabeto':             alfabeto
                                             }, context_instance=RequestContext(request))
 
 def diretor(request, diretor_id):
@@ -115,7 +172,7 @@ def diretor(request, diretor_id):
                                                             'ano_lancamento'
                                                         ).reverse()
     ultimo_filme                = filmes[0] if filmes else None #retorna None se filmes estiver vazio
-    frase                       = util.frase_randomica()
+    frase                       = util.frase_randomica()            
 
     return render_to_response('diretor.html', {
                                             'diretor': diretor, 

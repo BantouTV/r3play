@@ -4,6 +4,7 @@ from r3playapp.models import Diretores
 from r3playapp.models import Artistas
 from r3playapp.models import Categorias
 from r3playapp.models import Generos
+from r3playapp.models import Frases
 
 class ArtistasAdmin(admin.ModelAdmin):
     list_display            = ('nome', 'data_nascimento', 'cidade_natal')
@@ -36,7 +37,7 @@ class FilmesAdmin(admin.ModelAdmin):
                             'sinopse', 
                             'diretores', 
                             'artistas', 
-                            'frases', 
+                            'trailer', 
                             'capa', 
                             'origem', 
                             )
@@ -57,7 +58,15 @@ class CategoriasAdmin(admin.ModelAdmin):
 admin.site.register(Categorias, CategoriasAdmin)
 
 class GenerosAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'descricao')
+    list_display            = ('nome', 'descricao')
     
 admin.site.register(Generos, GenerosAdmin)
 
+class FrasesAdmin(admin.ModelAdmin):
+    search_fields           = ('frase', 'filmes')
+    list_filter             = ('filmes', )
+    list_display            = ('frase', )
+    filter_horizontal       = ("filmes",) # box para filtar multiplas selecoes
+
+    
+admin.site.register(Frases, FrasesAdmin)

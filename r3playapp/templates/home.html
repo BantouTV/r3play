@@ -55,6 +55,7 @@
 							<form name="ano" method="get" action="/home/">
 								<select id="filtro_ano" name="ano">
 									<option>ANO</option>
+									<option value='todos'>todos</option>
 									{% for ano in anos %}
 										<option value="{{ ano }}">{{ ano }}</option>
 									{% endfor %}
@@ -65,6 +66,7 @@
 							<form name="genero" method="get" action="/home/">
 								<select id="filtro_genero" name="genero">
 										<option>genero</option>
+										<option value='todos'>todos</option>
 									{% for genero in lista_generos %}
 										<option value="{{ genero.id }}">{{ genero }}</option>
 									{% endfor %}
