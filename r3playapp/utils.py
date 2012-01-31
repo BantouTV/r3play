@@ -14,3 +14,6 @@ class Util:
         dados_escolhidos        = {'frase': frase_aleatoria.frase, 'filme': frase_aleatoria.filmes.all()[0]}
         
         return dados_escolhidos
+        
+    def lista_paises(lista, self):
+        pass

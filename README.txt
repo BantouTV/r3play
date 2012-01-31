@@ -34,3 +34,12 @@ $ python manage.py runfcgi host=ec2-177-71-186-15.sa-east-1.compute.amazonaws.co
 path local para os arquivos css do django
 
 cd /Library/Python/2.7/site-packages/django/contrib/admin/media/css/
+
+#########################
+
+- exportar os dados do banco de dados e carregar novamente
+
+1 - Export your data to a fixture using the dumpdata management command
+2 - Drop the table
+3 - Run syncdb
+4 - Reload your data from the fixture using the loaddata management command
