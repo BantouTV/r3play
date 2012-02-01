@@ -20,8 +20,30 @@
 						<li class="last"><a href="#" class="selected">"{{ query|escape }}"</a></li>
 					</ul>
 					<ul class="submenu">
-						<li><select><option>ANO</option></select></li>
-						<li><select><option>GÊNEROS</option></select></li>
+						<li>
+							<form name="ano" method="get" action="/busca/">
+								<select id="filtro_ano" name="ano">
+									<option>ANO</option>
+									<option value='todos'>todos</option>
+									{% for ano in anos %}
+										<option value="{{ ano }}">{{ ano }}</option>
+									{% endfor %}
+								</select>
+								<input type='hidden' name='q' value='{{ query }}'>
+							</form>
+						</li>
+						<li>
+							<form name="genero" method="get" action="/busca/">
+								<select id="filtro_genero" name="genero">
+										<option>genero</option>
+										<option value='todos'>todos</option>
+									{% for genero in lista_generos %}
+										<option value="{{ genero.id }}">{{ genero }}</option>
+									{% endfor %}
+								</select>
+								<input type='hidden' name='q' value='{{ query }}'>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>

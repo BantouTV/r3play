@@ -16,4 +16,14 @@ class Util:
         return dados_escolhidos
         
     def lista_paises(lista, self):
+        
         pass
+        
+    def lista_alfabeto(self):
+        alfabeto                    = []
+        codes                       = range(ord('a'), ord('z')+1)
+        
+        for code in codes:
+            alfabeto.append( chr(code) )
+            
+        return alfabeto

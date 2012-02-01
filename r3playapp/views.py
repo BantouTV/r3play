@@ -9,13 +9,15 @@ from django.db.models import Q
 from django.http import HttpResponse
 
 util                            = Util()
+lista_generos                   = Generos.objects.all().order_by('nome')
+alfabeto                        = util.lista_alfabeto()
+anos                            = range(2000,2013)
 
 def index(request):
     return render_to_response('index.html')
 
 def home(request):
     frase                       = util.frase_randomica()
-    lista_generos               = Generos.objects.all().order_by('nome')
     filtro_genero               = request.GET.get('genero', '')
     filtro_ano                  = request.GET.get('ano', '')
     filtro_tipo                 = request.GET.get('tipo', '')
@@ -43,7 +45,7 @@ def home(request):
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
                                         'frase':                        frase,
                                         'lista_generos':                lista_generos,
-                                        'anos':                         range(2000,2013),
+                                        'anos':                         anos,
                                         'tipo':                         filtro_tipo
                                         }, context_instance=RequestContext(request))
     
@@ -57,22 +59,43 @@ def filme(request, filme_id):
                                         }, context_instance=RequestContext(request))
     
 def busca(request):
-    query                       = request.GET.get('q', '')
     frase                       = util.frase_randomica()
+    query                       = request.GET.get('q', '')
+    filtro_genero               = request.GET.get('genero', '')
+    filtro_ano                  = request.GET.get('ano', '')
+    resultados                  = []
     
     if query:
         qset = (
             Q(titulo_nacional__icontains=query) |
             Q(titulo_original__icontains=query) 
         )
-        resultados = Filmes.objects.filter(qset).distinct()
+        
+        if filtro_genero:
+            if filtro_genero == 'todos':
+                resultados                      = Filmes.objects.filter(qset).distinct()
+            else:
+                resultados                      = Filmes.objects.filter(qset).distinct().filter(genero__id__exact = filtro_genero)
+        
+        elif filtro_ano:
+            if filtro_ano == 'todos':
+                resultados                      = Filmes.objects.filter(qset).distinct()
+            else:
+                resultados                      = Filmes.objects.filter(qset).distinct().filter(ano_lancamento__exact = filtro_ano)
+        
+        else:
+            resultados = Filmes.objects.filter(qset).distinct()
+        
     else:
         resultados = []
+        
     
     return render_to_response("resultado_busca.html", {
-                                                    "resultados": resultados,
-                                                    "query": query,
-                                                    'frase': frase
+                                                    "resultados":       resultados,
+                                                    "query":            query,
+                                                    'frase':            frase,
+                                                    'anos':             anos,
+                                                    'lista_generos':    lista_generos
                                                     }, context_instance=RequestContext(request))
     
 def categorias(request):
@@ -85,12 +108,7 @@ def artistas(request):
     lista_paises                = []
     anterior                    = ''
     filtro_nacionalidade        = request.GET.get('nacionalidade', '')
-    filtro_nome                 = request.GET.get('nome', '')
-    codes                       = range(ord('a'), ord('z')+1)
-    alfabeto                    = []
-    
-    for code in codes:
-        alfabeto.append( chr(code) )
+    filtro_nome                 = request.GET.get('nome', '')    
     
     for item in lista_artistas_por_pais: # separando apenas os nosmes de paises unicos
         if item.pais != anterior:
@@ -137,11 +155,6 @@ def diretores(request):
     anterior                    = ''
     filtro_nacionalidade        = request.GET.get('nacionalidade', '')
     filtro_nome                 = request.GET.get('nome', '')
-    codes                       = range(ord('a'), ord('z')+1)
-    alfabeto                    = []
-    
-    for code in codes:
-        alfabeto.append( chr(code) )
     
     for item in lista_diretores_por_pais: # separando apenas os nosmes de paises unicos
         if item.pais != anterior:
