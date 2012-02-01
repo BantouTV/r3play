@@ -111,7 +111,6 @@ def artistas(request):
     lista_paises                = []
     anterior                    = ''
     
-    
     for item in lista_artistas_por_pais: # separando apenas os nomes de paises unicos
         item.pais = item.pais.lower()
         if item.pais != anterior:
@@ -121,11 +120,12 @@ def artistas(request):
     
     if filtro_nacionalidade:
         if filtro_nacionalidade != 'todos':
-            lista_artistas          = lista_artistas.filter( pais__contains = filtro_nacionalidade )
+            lista_artistas          = lista_artistas.filter( pais__icontains = filtro_nacionalidade )
     
     if filtro_nome:
         if filtro_nome != 'todos':
             lista_artistas          = lista_artistas.filter( nome__istartswith = filtro_nome )
+    
     
     return render_to_response('artistas.html', {
                                             'lista_artistas':   lista_artistas, 
@@ -167,7 +167,7 @@ def diretores(request):
     
     if filtro_nacionalidade:
         if filtro_nacionalidade != 'todos':
-            lista_diretores          = lista_diretores.filter( pais__contains = filtro_nacionalidade )
+            lista_diretores          = lista_diretores.filter( pais__icontains = filtro_nacionalidade )
     
     if filtro_nome:
         if filtro_nome != 'todos':
