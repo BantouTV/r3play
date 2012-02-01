@@ -35,11 +35,12 @@ def home(request):
             lista_ultimos_filmes            = Filmes.objects.all().filter(ano_lancamento__exact = filtro_ano)[:15]
     elif filtro_tipo:
         if filtro_tipo == 'todos':
-            lista_ultimos_filmes        = Filmes.objects.all()[:15]
+            lista_ultimos_filmes            = Filmes.objects.all()[:15]
         else :
-            lista_ultimos_filmes        = Filmes.objects.all().filter(tipo__contains = filtro_tipo)[:15]
+            lista_ultimos_filmes            = Filmes.objects.all().filter(tipo__contains = filtro_tipo)[:15]
     else:
-        lista_ultimos_filmes            = Filmes.objects.all()[:15]
+        lista_ultimos_filmes                = Filmes.objects.all()[:15]
+    
     
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
@@ -104,16 +105,19 @@ def categorias(request):
 def artistas(request):
     lista_artistas              = Artistas.objects.all()
     frase                       = util.frase_randomica()
+    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
+    filtro_nome                 = request.GET.get('nome', '')
     lista_artistas_por_pais     = lista_artistas.order_by('pais').distinct('pais')
     lista_paises                = []
     anterior                    = ''
-    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
-    filtro_nome                 = request.GET.get('nome', '')    
     
-    for item in lista_artistas_por_pais: # separando apenas os nosmes de paises unicos
+    
+    for item in lista_artistas_por_pais: # separando apenas os nomes de paises unicos
+        item.pais = item.pais.lower()
         if item.pais != anterior:
             lista_paises.append(item.pais)
             anterior = item.pais
+    
     
     if filtro_nacionalidade:
         if filtro_nacionalidade != 'todos':
@@ -150,11 +154,11 @@ def artista(request, artista_id):
 def diretores(request):
     lista_diretores             = Diretores.objects.all()
     frase                       = util.frase_randomica()
+    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
+    filtro_nome                 = request.GET.get('nome', '')
     lista_diretores_por_pais    = lista_diretores.order_by('pais').distinct('pais')
     lista_paises                = []
     anterior                    = ''
-    filtro_nacionalidade        = request.GET.get('nacionalidade', '')
-    filtro_nome                 = request.GET.get('nome', '')
     
     for item in lista_diretores_por_pais: # separando apenas os nosmes de paises unicos
         if item.pais != anterior:

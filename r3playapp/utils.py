@@ -16,7 +16,6 @@ class Util:
         return dados_escolhidos
         
     def lista_paises(lista, self):
-        
         pass
         
     def lista_alfabeto(self):

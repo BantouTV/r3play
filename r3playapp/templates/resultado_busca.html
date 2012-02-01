@@ -24,9 +24,9 @@
 							<form name="ano" method="get" action="/busca/">
 								<select id="filtro_ano" name="ano">
 									<option>ANO</option>
-									<option value='todos'>todos</option>
+									<option value='todos'>TODOS</option>
 									{% for ano in anos %}
-										<option value="{{ ano }}">{{ ano }}</option>
+										<option value="{{ ano }}">{{ ano|upper }}</option>
 									{% endfor %}
 								</select>
 								<input type='hidden' name='q' value='{{ query }}'>
@@ -36,9 +36,9 @@
 							<form name="genero" method="get" action="/busca/">
 								<select id="filtro_genero" name="genero">
 										<option>genero</option>
-										<option value='todos'>todos</option>
+										<option value='todos'>TODOS</option>
 									{% for genero in lista_generos %}
-										<option value="{{ genero.id }}">{{ genero }}</option>
+										<option value="{{ genero.id }}">{{ genero|upper }}</option>
 									{% endfor %}
 								</select>
 								<input type='hidden' name='q' value='{{ query }}'>
