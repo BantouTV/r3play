@@ -112,7 +112,7 @@ def artistas(request):
     anterior                    = ''
     
     for item in lista_artistas_por_pais: # separando apenas os nomes de paises unicos
-        item.pais = item.pais.lower()
+        item.pais = item.pais.lower().strip()
         if item.pais != anterior:
             lista_paises.append(item.pais)
             anterior = item.pais
@@ -161,6 +161,7 @@ def diretores(request):
     anterior                    = ''
     
     for item in lista_diretores_por_pais: # separando apenas os nosmes de paises unicos
+        item.pais = item.pais.lower().strip()
         if item.pais != anterior:
             lista_paises.append(item.pais)
             anterior = item.pais
