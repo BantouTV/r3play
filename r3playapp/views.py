@@ -142,6 +142,7 @@ def artistas(request):
     except:
         artistas                = paginator.page( 1 )
     
+    
     return render_to_response('artistas.html', {
                                             'lista_artistas':   artistas, 
                                             'frase':            frase,
@@ -167,7 +168,8 @@ def artista(request, artista_id):
                                             'ultimo_filme': ultimo_filme, 
                                             'frase': frase
                                             }, context_instance=RequestContext(request))
-                                            
+
+                                          
 def diretores(request):
     lista_diretores             = Diretores.objects.all()
     frase                       = util.frase_randomica()
@@ -176,6 +178,10 @@ def diretores(request):
     lista_diretores_por_pais    = lista_diretores.order_by('pais').distinct('pais')
     lista_paises                = []
     anterior                    = ''
+    nacionalidade               = request.GET.get('nacionalidade')
+    nome                        = request.GET.get('nome')
+    page                        = request.GET.get('page')
+    
     
     for item in lista_diretores_por_pais: # separando apenas os nosmes de paises unicos
         item.pais = item.pais.lower().strip()
@@ -183,20 +189,35 @@ def diretores(request):
             lista_paises.append(item.pais)
             anterior = item.pais
     
+    
     if filtro_nacionalidade:
         if filtro_nacionalidade != 'todos':
             lista_diretores          = lista_diretores.filter( pais__icontains = filtro_nacionalidade )
-    
+    else:
+        nacionalidade               = ''
+        
     if filtro_nome:
         if filtro_nome != 'todos':
             lista_diretores          = lista_diretores.filter( nome__istartswith = filtro_nome )
+    else:
+        nome                        = ''
+        
+    # paginando os resultados
+    paginator                   = Paginator(lista_diretores, 24) # mostra XX registros por pagina
+    try:
+        diretores                = paginator.page( page )
+    except:
+        diretores                = paginator.page( 1 )
+    
     
 
     return render_to_response('diretores.html', {
-                                            'lista_diretores':      lista_diretores, 
+                                            'lista_diretores':      diretores, 
                                             'frase':                frase,
                                             'paises':               lista_paises,
-                                            'alfabeto':             alfabeto
+                                            'alfabeto':             alfabeto,
+                                            'nome':                 nome,
+                                            'nacionalidade':        nacionalidade
                                             }, context_instance=RequestContext(request))
 
 def diretor(request, diretor_id):

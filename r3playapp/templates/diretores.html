@@ -68,7 +68,7 @@
 			<div class="users clear">
 				<div class="users-cont">
 					
-					{% for diretor in lista_diretores %}
+					{% for diretor in lista_diretores.object_list %}
 					<!-- diretor -->
 					<div class="user">
 						<div class="img">
@@ -93,6 +93,23 @@
 					
 				</div> <!-- users-cont -->
 			</div><!-- users clear -->
+			
+			<!-- paginação de resultados -->
+			<div class="pagination" style="text-align:center;">
+			    <span class="step-links">
+			        {% if lista_diretores.has_previous %}
+			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_diretores.previous_page_number }}">anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ lista_diretores.number }} de {{ lista_diretores.paginator.num_pages }}.
+			        </span>
+
+			        {% if lista_diretores.has_next %}
+			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_diretores.next_page_number }}">próxima</a>
+			        {% endif %}
+			    </span>
+			</div>
 			
 		</div><!-- cont-header -->
 {% endblock %}
