@@ -67,7 +67,7 @@
 			<div class="users clear">
 				<div class="users-cont">
 					
-					{% for artista in lista_artistas %}
+					{% for artista in lista_artistas.object_list %}
 					<!-- artista -->
 					<div class="user">
 						<div class="img">
@@ -92,6 +92,23 @@
 					
 				</div> <!-- users-cont -->
 			</div><!-- users clear -->
+			
+			<!-- paginação de resultados -->
+			<div class="pagination" style="text-align:center;">
+			    <span class="step-links">
+			        {% if lista_artistas.has_previous %}
+			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_artistas.previous_page_number }}">anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ lista_artistas.number }} de {{ lista_artistas.paginator.num_pages }}.
+			        </span>
+
+			        {% if lista_artistas.has_next %}
+			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_artistas.next_page_number }}">próxima</a>
+			        {% endif %}
+			    </span>
+			</div>
 			
 		</div><!-- cont-header -->
 	</div><!-- col-00 -->

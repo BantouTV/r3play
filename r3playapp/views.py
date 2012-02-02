@@ -7,6 +7,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 
 util                            = Util()
 lista_generos                   = Generos.objects.all().order_by('nome')
@@ -110,28 +111,44 @@ def artistas(request):
     lista_artistas_por_pais     = lista_artistas.order_by('pais').distinct('pais')
     lista_paises                = []
     anterior                    = ''
+    nacionalidade               = request.GET.get('nacionalidade')
+    nome                        = request.GET.get('nome')
+    page                        = request.GET.get('page')
     
+
     for item in lista_artistas_por_pais: # separando apenas os nomes de paises unicos
         item.pais = item.pais.lower().strip()
         if item.pais != anterior:
             lista_paises.append(item.pais)
             anterior = item.pais
-    
+        
     
     if filtro_nacionalidade:
         if filtro_nacionalidade != 'todos':
             lista_artistas          = lista_artistas.filter( pais__icontains = filtro_nacionalidade )
+    else:
+        nacionalidade               = ''
     
     if filtro_nome:
         if filtro_nome != 'todos':
             lista_artistas          = lista_artistas.filter( nome__istartswith = filtro_nome )
-    
+    else:
+        nome                        = ''
+
+    # paginando os resultados
+    paginator                   = Paginator(lista_artistas, 12) # mostra XX registros por pagina
+    try:
+        artistas                = paginator.page( page )
+    except:
+        artistas                = paginator.page( 1 )
     
     return render_to_response('artistas.html', {
-                                            'lista_artistas':   lista_artistas, 
+                                            'lista_artistas':   artistas, 
                                             'frase':            frase,
                                             'paises':           lista_paises,
-                                            'alfabeto':         alfabeto
+                                            'alfabeto':         alfabeto,
+                                            'nome':             nome,
+                                            'nacionalidade':    nacionalidade
                                             }, context_instance=RequestContext(request))
     
 def artista(request, artista_id):
