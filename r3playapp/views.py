@@ -136,7 +136,7 @@ def artistas(request):
         nome                        = ''
 
     # paginando os resultados
-    paginator                   = Paginator(lista_artistas, 12) # mostra XX registros por pagina
+    paginator                   = Paginator(lista_artistas, 24) # mostra XX registros por pagina
     try:
         artistas                = paginator.page( page )
     except:
