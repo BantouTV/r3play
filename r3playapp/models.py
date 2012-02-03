@@ -101,3 +101,23 @@ class Frases(models.Model):
     
     def __unicode__(self):
         return self.frase
+
+class Cinemas(models.Model):
+    nome                    = models.CharField(max_length = 100)
+    rede                    = models.CharField(max_length = 100, null=True, blank=True, verbose_name='Rede de Cinema')
+    cep                     = models.IntegerField(null=True, blank=True, verbose_name='CEP')
+    endereco                = models.CharField(max_length = 300)
+    bairro                  = models.CharField(max_length = 100, null=True, blank=True)
+    cidade                  = models.CharField(max_length = 100)
+    estado                  = models.CharField(max_length = 100)
+    shopping                = models.CharField(max_length = 100, null=True, blank=True)
+    telefone                = models.CharField(max_length = 100, null=True, blank=True)
+    site                    = models.URLField(max_length = 200, null=True, blank=True)
+    email                   = models.EmailField(max_length = 200, null=True, blank=True)
+    logomarca               = ImageWithThumbsField( upload_to='upload/logomarcas/%Y/%m/%d', sizes=( (171,104), (80,80), (44,44),) )
+    
+    class Meta:
+        verbose_name_plural = "Cinemas"
+    
+    def __unicode__(self):
+        return self.nome

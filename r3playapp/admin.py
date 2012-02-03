@@ -5,6 +5,7 @@ from r3playapp.models import Artistas
 from r3playapp.models import Categorias
 from r3playapp.models import Generos
 from r3playapp.models import Frases
+from r3playapp.models import Cinemas
 
 class ArtistasAdmin(admin.ModelAdmin):
     list_display            = ('nome', 'data_nascimento', 'cidade_natal')
@@ -70,3 +71,11 @@ class FrasesAdmin(admin.ModelAdmin):
 
     
 admin.site.register(Frases, FrasesAdmin)
+
+class CinemasAdmin(admin.ModelAdmin):
+    search_fields           = ('nome', 'shopping')
+    list_filter             = ('cidade', )
+    list_display            = ('nome', 'cidade' )
+    
+admin.site.register(Cinemas, CinemasAdmin)
+    
