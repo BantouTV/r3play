@@ -41,8 +41,8 @@ def home(request):
             lista_ultimos_filmes            = Filmes.objects.all().filter(tipo__contains = filtro_tipo)[:15]
     else:
         lista_ultimos_filmes                = Filmes.objects.all()[:15]
-    
-    
+
+
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
                                         'frase':                        frase,
@@ -50,7 +50,8 @@ def home(request):
                                         'anos':                         anos,
                                         'tipo':                         filtro_tipo
                                         }, context_instance=RequestContext(request))
-    
+                                        
+
 def filme(request, filme_id):
     filme                       = get_object_or_404(Filmes, id=filme_id)
     frase                       = util.frase_randomica()
@@ -59,13 +60,15 @@ def filme(request, filme_id):
                                         'filme': filme, 
                                         'frase': frase
                                         }, context_instance=RequestContext(request))
-    
+
+ 
 def busca(request):
     frase                       = util.frase_randomica()
     query                       = request.GET.get('q', '')
     filtro_genero               = request.GET.get('genero', '')
     filtro_ano                  = request.GET.get('ano', '')
-    resultados                  = []
+    resultados_lista            = []
+    page                        = request.GET.get('page')
     
     if query:
         qset = (
@@ -75,23 +78,29 @@ def busca(request):
         
         if filtro_genero:
             if filtro_genero == 'todos':
-                resultados                      = Filmes.objects.filter(qset).distinct()
+                resultados_lista                      = Filmes.objects.filter(qset).distinct()
             else:
-                resultados                      = Filmes.objects.filter(qset).distinct().filter(genero__id__exact = filtro_genero)
+                resultados_lista                      = Filmes.objects.filter(qset).distinct().filter(genero__id__exact = filtro_genero)
         
         elif filtro_ano:
             if filtro_ano == 'todos':
-                resultados                      = Filmes.objects.filter(qset).distinct()
+                resultados_lista                      = Filmes.objects.filter(qset).distinct()
             else:
-                resultados                      = Filmes.objects.filter(qset).distinct().filter(ano_lancamento__exact = filtro_ano)
+                resultados_lista                      = Filmes.objects.filter(qset).distinct().filter(ano_lancamento__exact = filtro_ano)
         
         else:
-            resultados = Filmes.objects.filter(qset).distinct()
+            resultados_lista = Filmes.objects.filter(qset).distinct()
         
     else:
-        resultados = []
+        resultados_lista = []
         
-    
+    # paginando os resultados
+    paginator                       = Paginator(resultados_lista, 16) # mostra XX registros por pagina
+    try:
+        resultados                  = paginator.page( page )
+    except:
+        resultados                  = paginator.page( 1 )
+
     return render_to_response("resultado_busca.html", {
                                                     "resultados":       resultados,
                                                     "query":            query,

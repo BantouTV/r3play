@@ -52,7 +52,7 @@
 				<div class="films-cont">
 					
 					{% if resultados %}
-						{% for filme in resultados %}
+						{% for filme in resultados.object_list %}
 						<div class="film">
 							<a href="/filme/{{ filme.id }}"><img src="{{ filme.capa.url }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
 							<span>
@@ -74,6 +74,23 @@
 			</div><!-- films clear -->
 			{% endif %}
 			
+			
+			<!-- paginação de resultados -->
+			<div class="pagination" style="text-align:center;">
+			    <span class="step-links">
+			        {% if resultados.has_previous %}
+			            <a href="?q={{ query }}&page={{ resultados.previous_page_number }}">anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ resultados.number }} de {{ resultados.paginator.num_pages }}.
+			        </span>
+
+			        {% if resultados.has_next %}
+			            <a href="?q={{ query }}&page={{ resultados.next_page_number }}">próxima</a>
+			        {% endif %}
+			    </span>
+			</div>
 		</div>
 	</div>
 {% endblock %}
