@@ -44,7 +44,7 @@ a:focus{outline:0;}
 .search_form{position:relative;width:228px;float:left}
 .disclaimer{font-size:0.8em;color:#636363;font-style:italic;clear:both;padding-bottom:15px;margin-left:90px;font-weight:bold;}
 .disclaimer_autor{color:#1ac6ff}	
-ul.main_menu{padding:6px 0;margin-left:90px;width:100%;}
+ul.main_menu{padding:6px 0;margin-left:90px;}
 ul.main_menu li{float:left;padding:0 8px 0 0;margin:0 8px 0 0;border-right:1px solid #999999}
 ul.main_menu li a{color:#0066cc;font-size:0.8em;font-weight:bold}
 
@@ -588,3 +588,6 @@ div.btn_full a{background:transparent url(../img/down-arrow.png) no-repeat;overf
 .aligncenter{text-align:center}
 
 .tit-select{background:transparent url(../img/btn-select.jpg) no-repeat;width:135px;height:19px;color:#06C;display:block;padding-left:30px;margin:0 0 10px -1px;}
+
+
+body.tipo-02  div.content{width:auto;}
