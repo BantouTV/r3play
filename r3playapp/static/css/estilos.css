@@ -34,7 +34,7 @@ a:focus{outline:0;}
 .copyright{text-align:right;color:#464646;font-size:0.8em;margin-top:5px;}
 
 /* editar */
-.header{background: transparent url(../img/backg.gif);height:80px;width:100%;padding-top:60px;}
+.header{background: transparent url(../img/backg.gif);height:80px;width:100%;padding-top:30px;}
 .tipo-02{background: transparent url(../img/bg_content.png)}
 .tipo-02 .container{width:1000px;margin:0 auto;position:relative;}
 .tipo-02 h1{float:left;margin:0 16px 8px 90px;}
@@ -54,7 +54,7 @@ ul.main_menu li a{color:#0066cc;font-size:0.8em;font-weight:bold}
 .tipo-02 .col-03{width:230px;float:left;padding:10px 0;}
 .tipo-02 .col-00{/*width:900px;*/width:855px;padding:10px 0 0;margin:0 auto;}
 .tipo-02 h2{color:#434343;font-size:1.2em;font-weight:normal;padding:12px 15px;}
-.mn_flut{width:61px;height:160px;background: transparent url(../img/bg_mn_flut.png);position:absolute;z-index:1;top:26px;left:0px;}
+.mn_flut{width:61px;height:160px;background: transparent url(../img/bg_mn_flut.png);position:absolute;z-index:1;top:28px;left:0px;}
 .mn_flut ul{width:33px;padding-top:8px;}
 .mn_flut ul li{}
 
@@ -345,7 +345,7 @@ div:after, ol:after, form:after, dl:after, ul:after{content:".";display:block;cl
 .user{float:left;font-size:0.8em;margin:0 10px 50px 0;width:207px;height:70px;}
 .user .info{float:left;width:110px;}
 .user .img{float:left;width:80px;height:80px;margin-right:10px;background:transparent url(../img/user-nophoto.png);}
-.user .info-user{border-bottom:1px dotted #c7c7c7;margin-bottom:3px;}
+.user .info-user{border-bottom:1px dotted #c7c7c7;margin-bottom:3px;padding-bottom:3px;}
 .user span{display:block;}
 .user .info-user .name{color:#333;font-weight:bold;}
 .user .info-user .location{color:#434343;}
