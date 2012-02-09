@@ -338,8 +338,8 @@ div:after, ol:after, form:after, dl:after, ul:after{content:".";display:block;cl
 
 .box-options .other-options{float:left;}
 .box-options .submenu{float:right;padding:5px 0;}
-.box-options .submenu li{text-transform:uppercase;font-size:1.2em;color:#0066cc;float:left;padding:0 10px;border-left:1px dotted #e8e8e8}
-.box-options .submenu select{color:#0066CC;border:none;background:none;font-size:.9em;}
+.box-options .submenu li{text-transform:uppercase;font-size:1.2em;color:#0066cc;float:left;padding:0 10px;border-left:1px dotted #e8e8e8;}
+.box-options .submenu select{color:#0066CC;border:none;background:none;font-size:.9em;padding:4px 0 0 4px;}
 
 .users{overflow:hidden;}
 .users-cont{width:930px;*padding:0 0 30px;}
