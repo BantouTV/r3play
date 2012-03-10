@@ -3,6 +3,8 @@
 
 from r3play.r3playapp.models import Frases
 from random import choice
+from r3play.r3playapp.models import Filmes
+from django.shortcuts import get_object_or_404
 
 class Util:
     def __init__(self):
@@ -26,3 +28,6 @@ class Util:
             alfabeto.append( chr(code) )
             
         return alfabeto
+        
+    def monta_lista_artistas_urls(artistas, self):
+        pass

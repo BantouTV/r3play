@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 from r3play.r3playapp.models import Filmes
 from r3play.r3playapp.models import Artistas
 from r3play.r3playapp.models import Diretores
@@ -55,10 +58,25 @@ def home(request):
 def filme(request, filme_id):
     filme                       = get_object_or_404(Filmes, id=filme_id)
     frase                       = util.frase_randomica()
+    lista                       = filme.artistas.split(',')
+    lista_artistas              = []
+    
+    for nome_artista in lista:
+        nome_artista                = nome_artista.strip()
+        artista_atual               = Artistas.objects.filter( nome__exact = nome_artista )
+        pk_lista                    = artista_atual.values('pk')
+        artista                     = 0
+        url                         = '/artista/'
+        
+        for pk in pk_lista:
+            artista                 = pk['pk']
+    
+        lista_artistas.append( {'nome' : nome_artista, 'url' : url + str(int(artista))} )
     
     return render_to_response('filme.html', {
-                                        'filme': filme, 
-                                        'frase': frase
+                                        'filme':            filme, 
+                                        'frase':            frase,
+                                        'lista_artistas':   lista_artistas
                                         }, context_instance=RequestContext(request))
 
  
@@ -212,7 +230,7 @@ def diretores(request):
         nome                        = ''
         
     # paginando os resultados
-    paginator                   = Paginator(lista_diretores, 16) # mostra XX registros por pagina
+    paginator                    = Paginator(lista_diretores, 16) # mostra XX registros por pagina
     try:
         diretores                = paginator.page( page )
     except:

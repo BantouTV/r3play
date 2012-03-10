@@ -52,7 +52,11 @@
 		
 			<div class="ficha_tec">
 				<p><span>Diretor: </span>{{ filme.diretores }}</p>
-				<p><span>Elenco: </span>{{ filme.artistas }}</p>
+				<p><span>Elenco: </span>
+				{% for artista in lista_artistas %}
+					<a href="{{ artista.url }}">{{ artista.nome }}</a>, 
+				{% endfor %}
+				</p>
 			</div>
 		</div>
 		
