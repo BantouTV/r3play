@@ -54,7 +54,11 @@
 				<p><span>Diretor: </span>{{ filme.diretores }}</p>
 				<p><span>Elenco: </span>
 				{% for artista in lista_artistas %}
-					<a href="{{ artista.url }}">{{ artista.nome }}</a>, 
+					{% if artista.url == "/artista/0" %}
+						{{ artista.nome }}, 
+					{% else %}
+						<a href="{{ artista.url }}">{{ artista.nome }}</a>, 
+					{% endif %}
 				{% endfor %}
 				</p>
 			</div>
