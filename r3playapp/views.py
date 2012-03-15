@@ -5,6 +5,7 @@ from r3play.r3playapp.models import Filmes
 from r3play.r3playapp.models import Artistas
 from r3play.r3playapp.models import Diretores
 from r3play.r3playapp.models import Generos
+from r3play.r3playapp.models import Cinemas
 from r3play.r3playapp.utils import Util
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
@@ -258,15 +259,43 @@ def diretor(request, diretor_id):
     frase                       = util.frase_randomica()            
 
     return render_to_response('diretor.html', {
-                                            'diretor': diretor, 
-                                            'filmes': filmes, 
-                                            'ultimo_filme': ultimo_filme, 
-                                            'frase': frase
+                                            'diretor':          diretor, 
+                                            'filmes':           filmes, 
+                                            'ultimo_filme':     ultimo_filme, 
+                                            'frase':            frase
                                             }, context_instance=RequestContext(request))
     
 def usuarios(request):
     return HttpResponse("Usuarios!")
     
 def cinemas(request):
-    return HttpResponse("Cinemas")
+    lista_cinemas               = Cinemas.objects.all()
+    frase                       = util.frase_randomica()
+    page                        = request.GET.get('page')
+    
+    #TODO obter a lista de estados dinamicamente
+    
+    estados                     = ['Acre',
+                                    'Alagoas',
+                                    'Amapá',
+                                    'Amazonas',
+                                    'Goiás', 
+                                    'São Paulo', 
+                                    'Rio de Janeiro'
+                                    ]
+
+    # paginando os resultados
+    paginator                   = Paginator(lista_cinemas, 16) # mostra XX registros por pagina
+    try:
+        cinemas                 = paginator.page( page )
+    except:
+        cinemas                 = paginator.page( 1 )
+
+
+    return render_to_response('cinemas.html', {
+                                            'lista_cinemas':    cinemas,
+                                            'frase':            frase,
+                                            'alfabeto':         alfabeto,
+                                            'estados':          estados
+                                            }, context_instance=RequestContext(request))
     
