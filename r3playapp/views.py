@@ -312,4 +312,11 @@ def cinemas(request):
                                             'alfabeto':         alfabeto,
                                             'estados':          lista_estados
                                             }, context_instance=RequestContext(request))
+
+def cinema(request, cinema_id):
+    cinema                      = get_object_or_404(Cinemas, id=cinema_id)
+
+    return render_to_response('cinema.html', {
+                                            'cinema':           cinema,
+                                            }, context_instance=RequestContext(request))
     

@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^diretor/(?P<diretor_id>\d+)/$', 'r3play.r3playapp.views.diretor', name='diretor'),
     url(r'^usuarios/$', 'r3play.r3playapp.views.usuarios', name='usuarios'),
     url(r'^cinemas/$', 'r3play.r3playapp.views.cinemas', name='cinemas'),
+    url(r'^cinema/(?P<cinema_id>\d+)/$', 'r3play.r3playapp.views.cinema', name='cinema'),
     
     (r'^accounts/login/$',  login),
     (r'^accounts/logout/$', logout),
