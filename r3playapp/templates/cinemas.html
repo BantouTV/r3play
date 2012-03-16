@@ -24,7 +24,7 @@
 			</div>
 			
 			<div class="dicas clear">
-				<p><span>15,250</span> usuários já assistiram, ao <span class="dicas-filme">CISNE NEGRO</span> em exibição nos cinemas.</p>
+				<p>Qual cinema você frequenta?!</p>
 			</div>
 			
 			<div class="box-options clear">
@@ -39,8 +39,8 @@
 					
 					<ul class="submenu">
 						<li>
-							<form name="estados" method="get" action="/cinemas/">
-								<select id='filtro_estados' name='estados'>
+							<form name="estado" method="get" action="/cinemas/">
+								<select id='filtro_estados' name='estado'>
 									<option>ESTADOS</option>
 									<option value='todos'>TODOS</option>
 									{% for estado in estados %}

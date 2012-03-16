@@ -14,4 +14,8 @@ $(document).ready(function() {
     $('#filtro_alfabeto').change(function(event){
         $(event.target).parent('form').submit();
     });
+
+    $('#filtro_estados').change(function(event){
+        $(event.target).parent('form').submit();
+    });    
 });

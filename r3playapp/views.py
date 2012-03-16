@@ -272,20 +272,34 @@ def cinemas(request):
     lista_cinemas               = Cinemas.objects.all()
     frase                       = util.frase_randomica()
     page                        = request.GET.get('page')
-    
-    #TODO obter a lista de estados dinamicamente
-    
-    estados                     = ['Acre',
-                                    'Alagoas',
-                                    'Amapá',
-                                    'Amazonas',
-                                    'Goiás', 
-                                    'São Paulo', 
-                                    'Rio de Janeiro'
-                                    ]
+    lista_cinemas_por_estado    = lista_cinemas.order_by('estado').distinct('estado')
+    lista_estados               = []
+    anterior                    = ''
+    filtro_nome                 = request.GET.get('nome')
+    filtro_estado              = request.GET.get('estado')
+
+    # separando apenas os nosmes de estados unicos
+    for item in lista_cinemas_por_estado: 
+        item.estado = item.estado.lower().strip()
+        if item.estado != anterior:
+            lista_estados.append(item.estado)
+            anterior = item.estado
+
+    if filtro_nome:
+        if filtro_nome != 'todos':
+            lista_cinemas           = lista_cinemas.filter( nome__istartswith = filtro_nome )
+    else:
+        nome                        = ''
+
+    if filtro_estado:
+        if filtro_estado != 'todos':
+            lista_cinemas           = lista_cinemas.filter( estado__icontains = filtro_estado )
+    else:
+        nome                        = ''
 
     # paginando os resultados
-    paginator                   = Paginator(lista_cinemas, 16) # mostra XX registros por pagina
+    # mostra XX registros por pagina
+    paginator                   = Paginator(lista_cinemas, 16) 
     try:
         cinemas                 = paginator.page( page )
     except:
@@ -296,6 +310,6 @@ def cinemas(request):
                                             'lista_cinemas':    cinemas,
                                             'frase':            frase,
                                             'alfabeto':         alfabeto,
-                                            'estados':          estados
+                                            'estados':          lista_estados
                                             }, context_instance=RequestContext(request))
     
