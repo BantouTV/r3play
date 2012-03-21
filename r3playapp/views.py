@@ -60,7 +60,9 @@ def filme(request, filme_id):
     filme                       = get_object_or_404(Filmes, id=filme_id)
     frase                       = util.frase_randomica()
     lista                       = filme.artistas.split(',')
+    lista_diretores_string      = filme.diretores.split(',')
     lista_artistas              = []
+    lista_diretores             = []
     
     for nome_artista in lista:
         nome_artista                = nome_artista.strip()
@@ -74,10 +76,24 @@ def filme(request, filme_id):
     
         lista_artistas.append( {'nome' : nome_artista, 'url' : url + str(int(artista))} )
     
+    for nome_diretor in lista_diretores_string:
+        nome_diretor                = nome_diretor.strip()
+        diretor_atual               = Diretores.objects.filter( nome__exact = nome_diretor )
+        pk_lista                    = diretor_atual.values('pk')
+        diretor                     = 0
+        url                         = '/diretor/'
+        
+        for pk in pk_lista:
+            diretor                 = pk['pk']
+    
+        lista_diretores.append( {'nome' : nome_diretor, 'url' : url + str(int(diretor))} )
+
+
     return render_to_response('filme.html', {
                                         'filme':            filme, 
                                         'frase':            frase,
-                                        'lista_artistas':   lista_artistas
+                                        'lista_artistas':   lista_artistas,
+                                        'lista_diretores':  lista_diretores
                                         }, context_instance=RequestContext(request))
 
  
@@ -315,8 +331,10 @@ def cinemas(request):
 
 def cinema(request, cinema_id):
     cinema                      = get_object_or_404(Cinemas, id=cinema_id)
+    frase                       = util.frase_randomica()
 
     return render_to_response('cinema.html', {
                                             'cinema':           cinema,
+                                            'frase':            frase
                                             }, context_instance=RequestContext(request))
     

@@ -51,7 +51,15 @@
 			</div>
 		
 			<div class="ficha_tec">
-				<p><span>Diretor: </span>{{ filme.diretores }}</p>
+				<p><span>Diretor: </span>
+					{% for diretor in lista_diretores %}
+						{% if diretor.url == "/diretor/0" %}
+							{{ diretor.nome }}, 
+						{% else %}
+							<a href="{{ diretor.url }}">{{ diretor.nome }}</a>, 
+						{% endif %}
+					{% endfor %}
+				</p>
 				<p><span>Elenco: </span>
 				{% for artista in lista_artistas %}
 					{% if artista.url == "/artista/0" %}
