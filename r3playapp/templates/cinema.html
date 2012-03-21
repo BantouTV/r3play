@@ -31,8 +31,18 @@
 					<h4>{{ cinema.nome }}</h4>
 					<p>{{ cinema.endereco }}, {{ cinema.bairro }} <br />
 						{{ cinema.cidade }}, {{ cinema.estado }}<br />
-						{{ cinema.telefone }}<br />
-						<a href="{{ cinema.site }}" target="_blank">{{ cinema.site }}</a>
+						
+						{% if cinema.telefone != '' %}
+							{{ cinema.telefone }}<br />
+						{% else %}
+							Telefone não informado.<br />
+						{% endif %}
+						
+						{% if cinema.site != '' %}
+							<a href="{{ cinema.site }}" target="_blank">{{ cinema.site }}</a>
+						{% else %}
+							Site oficial não encontrado.
+						{% endif %}
 					</p>
 
 					<p class="cinema-info-2-btn">
