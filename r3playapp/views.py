@@ -199,7 +199,7 @@ def artistas(request):
 def artista(request, artista_id):
     artista                     = get_object_or_404(Artistas, id=artista_id)
     filmes                      = Filmes.objects.filter(
-                                                            artistas__contains = artista.nome
+                                                            artistas__contains = artista.nome.strip()
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
