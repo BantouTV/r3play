@@ -385,14 +385,14 @@ div.btn_full a{background:transparent url(../img/down-arrow.png) no-repeat;overf
 .artist-profile-img{float:left;margin:0 35px 0 0;}
 .artist-profile-content{float:left;min-width:400px;}
 .artist-profile-btn{margin:0 0 10px;}
-.artist-profile-btn-2{margin:15px 0 0;}
+.artist-profile-btn-2{margin:0 0 0;}
 .artist-profile-info{padding:0 0 10px;}
 .artist-profile-info *{line-height:100%;}
 .artist-profile-info span{display:block;margin:0 0 8px;color:#999;font-size:13px;}
 .artist-profile-info h4{margin:0 0 6px;color:#0066cc;font-size:19px;font-weight:normal;}
 .artist-profile-info small{display:block;margin:0 0 6px;color:#0066cc;font-size:11px;}
 .artist-profile-info b{display:block;color:#333;font-size:11px;font-weight:normal;}
-.artist-profile-bio{padding:3px 0 0;border-top:2px solid #e0e0e0;}
+.artist-profile-bio{border-top:2px solid #e0e0e0;border-bottom:5px;padding: 0 0 10px 0;}
 .artist-profile-bio b{color:#999;font-weight:normal;}
 .artist-profile-bio p{padding:5px 0 0;font-size:11px;color:#333;}
 .artist-profile-bio p a{color:#0066cc;}
