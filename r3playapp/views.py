@@ -267,7 +267,7 @@ def diretores(request):
 def diretor(request, diretor_id):
     diretor                     = get_object_or_404(Diretores, id=diretor_id)
     filmes                      = Filmes.objects.filter(
-                                                            diretores__contains = diretor.nome
+                                                            diretores__contains = diretor.nome.strip()
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
