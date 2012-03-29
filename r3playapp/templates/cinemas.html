@@ -76,7 +76,10 @@
 						
 						<div class="info">
 							<div class="info-user">
-								<span class="name">{{ cinema.nome|truncatewords:'2' }}</span>
+								<span class="name">
+									{{ cinema.nome|slice:":15" }}
+									{% if cinema.nome|length > 15 %}...{% endif %}
+								</span>
 								<span class="location">{{ cinema.cidade }}</span>
 							</div>
 							

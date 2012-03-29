@@ -149,6 +149,8 @@ def categorias(request):
     
 def artistas(request):
     lista_artistas              = Artistas.objects.all()
+    lista_diretores             = Diretores.objects.all()
+
     frase                       = util.frase_randomica()
     filtro_nacionalidade        = request.GET.get('nacionalidade', '')
     filtro_nome                 = request.GET.get('nome', '')
@@ -198,8 +200,7 @@ def artistas(request):
     
 def artista(request, artista_id):
     artista                     = get_object_or_404(Artistas, id=artista_id)
-    filmes                      = Filmes.objects.filter(
-                                                            artistas__contains = artista.nome.strip()
+    filmes                      = Filmes.objects.filter( artistas__contains = artista.nome.strip()
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
@@ -337,4 +338,3 @@ def cinema(request, cinema_id):
                                             'cinema':           cinema,
                                             'frase':            frase
                                             }, context_instance=RequestContext(request))
-    

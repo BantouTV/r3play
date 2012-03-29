@@ -77,13 +77,16 @@
 						
 						<div class="info">
 							<div class="info-user">
-								<span class="name">{{ diretor.nome|truncatewords:'2' }}</span>
+								<span class="name">
+									{{ diretor.nome|slice:":15" }}
+									{% if diretor.nome|length > 15 %}...{% endif %}
+								</span>
 								<span class="location">{{ diretor.pais }}</span>
 							</div>
 							
 							<div class="stats-user">
-								<span class="name">0 fãs</span>
-								<!--span class="location">0 filmes realizados</span-->								
+								<span class="location">0 filmes realizados</span>				
+								<span class="name">0 fãs</span>				
 							</div>
 							
 							<a href="#" class="add-user">Adicionar Usuário</a>
