@@ -316,7 +316,7 @@ def cinemas(request):
 
     # paginando os resultados
     # mostra XX registros por pagina
-    paginator                   = Paginator(lista_cinemas, 1) 
+    paginator                   = Paginator(lista_cinemas, 16) 
     try:
         cinemas                 = paginator.page( page )
     except:
