@@ -18,4 +18,6 @@ $(document).ready(function() {
     $('#filtro_estados').change(function(event){
         $(event.target).parent('form').submit();
     });    
+
+    $(".toolTip").tipTip();
 });
