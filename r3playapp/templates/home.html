@@ -85,8 +85,13 @@
 						<a href="/filme/{{ filme.id }}"><img src="{{ filme.capa.url }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
 						<span>
 							{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
-							<b>{{ filme.titulo_nacional|truncatewords:"2" }}</b>
-							
+							<!--b>{{ filme.titulo_nacional|truncatewords:"2" }}</b-->
+
+							<b>
+							{{ filme.titulo_nacional|slice:":15" }}
+							{% if filme.titulo_nacional|length > 15 %}...{% endif %}
+							</b>
+
 							{# variavel|first --- exibe apenas o primeiro elemento da lista #}
 							<span>{{ filme.genero.all|first }}</span>
 						</span>
