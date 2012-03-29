@@ -80,7 +80,10 @@
 									{{ cinema.nome|slice:":14" }}
 									{% if cinema.nome|length > 14 %}...{% endif %}
 								</span>
-								<span class="location">{{ cinema.cidade }}</span>
+								<span class="location">
+									{{ cinema.cidade|slice:":12" }}
+									{% if cinema.cidade|length > 12 %}...{% endif %}
+								</span>
 							</div>
 							
 							<div class="stats-user">

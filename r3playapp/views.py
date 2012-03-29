@@ -200,7 +200,7 @@ def artistas(request):
     
 def artista(request, artista_id):
     artista                     = get_object_or_404(Artistas, id=artista_id)
-    filmes                      = Filmes.objects.filter( artistas__contains = artista.nome.strip()
+    filmes                      = Filmes.objects.filter( artistas__contains = artista.nome.strip().encode('utf-8')
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
@@ -323,11 +323,19 @@ def cinemas(request):
         cinemas                 = paginator.page( 1 )
 
 
+    if filtro_estado == None:
+        filtro_estado = 'todos'
+
+    if filtro_nome == None:
+        filtro_nome = 'todos'
+
+
     return render_to_response('cinemas.html', {
                                             'lista_cinemas':    cinemas,
                                             'frase':            frase,
                                             'alfabeto':         alfabeto,
                                             'estados':          lista_estados,
+                                            'nome':             filtro_nome,
                                             'filtro_estado':    filtro_estado
                                             }, context_instance=RequestContext(request))
 

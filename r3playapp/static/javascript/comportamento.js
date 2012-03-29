@@ -19,5 +19,5 @@ $(document).ready(function() {
         $(event.target).parent('form').submit();
     });    
 
-    $(".toolTip").tipTip();
+    $(".toolTip").tipTip({delay:100,});
 });
