@@ -77,8 +77,8 @@
 						<div class="info">
 							<div class="info-user">
 								<span class="name">
-									{{ cinema.nome|slice:":15" }}
-									{% if cinema.nome|length > 15 %}...{% endif %}
+									{{ cinema.nome|slice:":14" }}
+									{% if cinema.nome|length > 14 %}...{% endif %}
 								</span>
 								<span class="location">{{ cinema.cidade }}</span>
 							</div>
@@ -100,7 +100,7 @@
 			<div class="pagination" style="text-align:center;">
 			    <span class="step-links">
 			        {% if lista_cinemas.has_previous %}
-			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_cinemas.previous_page_number }}">anterior</a>
+			            <a href="?nome={{ nome }}&estado={{ filtro_estado }}&page={{ lista_cinemas.previous_page_number }}">anterior</a>
 			        {% endif %}
 
 			        <span class="current">
@@ -108,7 +108,7 @@
 			        </span>
 
 			        {% if lista_cinemas.has_next %}
-			            <a href="?nacionalidade={{ nacionalidade }}&nome={{ nome }}&page={{ lista_cinemas.next_page_number }}">próxima</a>
+			            <a href="?nome={{ nome }}&estado={{ filtro_estado }}&page={{ lista_cinemas.next_page_number }}">próxima</a>
 			        {% endif %}
 			    </span>
 			</div>
