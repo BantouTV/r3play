@@ -12,7 +12,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator
-from django.utils.encoding import smart_unicode
+from unidecode import unidecode
 
 
 util                            = Util()
@@ -202,7 +202,7 @@ def artistas(request):
     
 def artista(request, artista_id):
     artista                     = get_object_or_404(Artistas, id=artista_id)
-    filmes                      = Filmes.objects.filter( artistas__contains = artista.nome.strip().encode('utf-8')
+    filmes                      = Filmes.objects.filter( artistas__contains = unidecode(artista.nome.strip())
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
