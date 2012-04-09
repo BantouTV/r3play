@@ -202,11 +202,12 @@ def artistas(request):
     
 def artista(request, artista_id):
     artista                     = get_object_or_404(Artistas, id=artista_id)
-    filmes                      = Filmes.objects.filter( artistas__contains = unidecode(artista.nome.strip())
+    filmes                      = Filmes.objects.filter( artistas__icontains = artista.nome.strip()
                                                         ).order_by(
                                                             'ano_lancamento'
                                                         ).reverse()
     ultimo_filme                = filmes[0] if filmes else None #retorna None se filmes estiver vazio
+
     frase                       = util.frase_randomica()
     
     return render_to_response('artista.html', {

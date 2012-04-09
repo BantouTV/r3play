@@ -59,9 +59,14 @@
 					
 					{% for filme in filmes %}
 					<div class="film">
-						<img src="{{ filme.capa.url }}" alt="{{ filme.nome }}" title="{{ filme.nome }}" />
+						<a href="/filme/{{filme.pk}}">
+							<img src="{{ filme.capa.url }}" alt="{{ filme.nome }}" title="{{ filme.nome }}" />
+						</a>
 						<span>
-							<b>{{ filme.titulo_nacional }}</b>
+							<b><a href="/filme/{{filme.pk}}">
+								{{ filme.titulo_nacional|slice:":16" }}
+									{% if filme.titulo_nacional|length > 16 %}...{% endif %}
+							</a></b>
 							<span>{{ filme.genero.all|first }}</span>
 						</span>
 					</div>
