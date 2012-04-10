@@ -338,7 +338,7 @@ div:after, ol:after, form:after, dl:after, ul:after{content:".";display:block;cl
 
 .box-options .other-options{float:left;margin-top:4px;}
 .box-options .submenu{float:right;padding:5px 0;}
-.box-options .submenu li{text-transform:uppercase;font-size:1.2em;color:#0066cc;float:left;padding:0 10px;border-left:1px dotted #e8e8e8;}
+.box-options .submenu li{text-transform:uppercase;font-size:1.2em;color:#0066cc;float:left;padding:0 10px;border-left:1px dotted #C7C7C7;}
 .box-options .submenu select{color:#0066CC;border:none;background:none;font-size:.9em;}
 
 .users{overflow:hidden;}
