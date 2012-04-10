@@ -82,7 +82,7 @@
 					
 					{% for filme in lista_ultimos_filmes %}
 					<div class="film">
-						<a href="/filme/{{ filme.id }}"><img src="{{ filme.capa.url }}" alt="{{ filme.titulo_nacional }}" title="{{ filme.titulo_nacional }}" /></a>
+						<a href="/filme/{{ filme.id }}"><img src="{{ filme.capa.url }}" alt="{{ filme.titulo_nacional }}" title="" /></a>
 						<span>
 							{# variavel|truncatewords:"2" ---- filtro que exibe ... depois de uma quantidade de palavras  #}
 							<!--b>{{ filme.titulo_nacional|truncatewords:"2" }}</b-->
