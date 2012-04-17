@@ -149,7 +149,7 @@ def busca(request):
                                                     }, context_instance=RequestContext(request))
     
 def categorias(request):
-    lista_categorias            = Categorias.objects.all()
+    lista_categorias            = Categorias.objects.all().order_by('nome')
     page                        = request.GET.get('page')
     frase                       = util.frase_randomica()
 
@@ -168,7 +168,7 @@ def categorias(request):
 
 def categoria(request, categoria_id):
     categoria                   = get_object_or_404(Categorias, id=categoria_id)
-    lista_categorias            = Categorias.objects.all()
+    lista_categorias            = Categorias.objects.all().order_by('nome')
     frase                       = util.frase_randomica() 
     lista_filmes                = categoria.filmes.all().order_by('titulo_nacional')
     index                       = int( random.random() * lista_categorias.count() )
