@@ -415,7 +415,7 @@ div.btn_full a{background:transparent url(../img/down-arrow.png) no-repeat;overf
 .cinema-info-2-btn{margin-top:18px;}
 
 .cinema-info-3{float:right;width:335px;}
-.cinema-info-3 div{overflow:hidden;margin:0 0 1px;padding:7px 13px;border:2px solid #e5e5e5;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#333;font-size:11px;}
+.cinema-info-3 div{overflow:visible;margin:0 0 1px;padding:7px 13px;border:2px solid #e5e5e5;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#333;font-size:11px;}
 .cinema-info-3 div a{display:block;padding:0 14px 0 0;color:#0066cc;background: transparent url(../img/down-arrow-3.png) no-repeat right center;}
 
 .perfil-wrap-1{float:left;width:520px;}

@@ -80,6 +80,10 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}javascript/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}javascript/comportamento.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}javascript/jquery.tipTip.minified.js"></script>
+
+	{% block javascript %}
+	{% endblock javascript %}
+
 	<!-- google analytics -->
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
