@@ -38,7 +38,12 @@
 						<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
 						<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
 					</div>
-					<p>{{ categoria.resenha }}</p>
+					
+					<p>
+					{{ categoria.resenha|slice:":140" }}
+					{% if categoria.resenha|length > 140 %}...{% endif %}
+					</p>
+
 	<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
 			</div>
 
@@ -69,11 +74,11 @@
 <div class="catcol-02">
 	<div class="cat_menu">
 		<span>Categorias</span>
-		<br/>
 		
-		<!--select>
+		<select>
     		<option>a-m</option>
-		</select-->
+    		<option>m-z</option>
+		</select>
 		
 		<ul>
 			{% for categoria in lista_categorias.object_list %}
