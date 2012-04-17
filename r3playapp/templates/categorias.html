@@ -1,90 +1,93 @@
 {% extends 'base.html' %}
 
 {%block titulo_da_pagina %}
-	Artistas
+Categorias
 {% endblock %}
 
 {% block frase %}
-	 {{ frase.frase }} 
-	 <a href="/filme/{{ frase.id }}">
-	 	<span class="disclaimer_autor">{{ frase.filme }}</span>
-	</a>
+ {{ frase.frase }} 
+ <a href="/filme/{{ frase.id }}">
+ 	<span class="disclaimer_autor">{{ frase.filme }}</span>
+</a>
 {% endblock %}
 
 {% block conteudo %}
 <div class="cat-col01">
 
-	<div class="cats_header">
-		<h2 class="catsh2">Recentes</h2>
-		<ul class="cats_menu">
-			<li><a href="#">+ Comentados</a></li>
-			<li><a href="#">+ Usuários</a></li>
-			<li class="last"><a href="#">Todos</a></li>
-		</ul>
-	</div>
+<div class="cats_header">
+	<h2 class="catsh2">Recentes</h2>
+	<ul class="cats_menu">
+		<li><a href="#">+ Comentados</a></li>
+		<li><a href="#">+ Usuários</a></li>
+		<li class="last"><a href="#">Todos</a></li>
+	</ul>
+</div>
 
-	{% for categoria in lista_categorias.object_list %}
-		<div class="categoria">
-			<div class="avatar_filme">
-				<a href="#"><img src="{{ STATIC_URL }}img/cat_cima.png" alt="cat_cima" width="29" height="19"/></a>
-				<img src="{{ categoria.foto.url_186x155 }}" width="186" height="155"/>
-				<a href="#"><img src="{{ STATIC_URL }}img/cat_baixo.png" alt="baixo" width="29" height="19"/></a>
-			</div>
+{% for categoria in lista_categorias.object_list %}
+	<div class="categoria">
+		<div class="avatar_filme">
+			<a href="#"><img src="{{ STATIC_URL }}img/cat_cima.png" alt="cat_cima" width="29" height="19"/></a>
 
-			<div class="cat_desc">
-				<h3>{{ categoria.nome }},</h3>
-				<span class="num_filme">{{ categoria.filmes.count }} filmes!</span>
-				<div class="termometro clear">
-						<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
-						<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
-					</div>
-					
-					<p>
-					{{ categoria.resenha|slice:":140" }}
-					{% if categoria.resenha|length > 140 %}...{% endif %}
-					</p>
-
-	<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-			</div>
-
-			<a href="#" class="cat_gosto"><img src="{{ STATIC_URL }}img/gosto.png" alt="gosto" /></a>
-			<div class="cat_separador clear"></div>
+			<a href="/categoria/{{ categoria.pk }}">
+			<img src="{{ categoria.foto.url_186x155 }}" width="186" height="155"/>
+			</a>
+			<a href="#"><img src="{{ STATIC_URL }}img/cat_baixo.png" alt="baixo" width="29" height="19"/></a>
 		</div>
-	{% endfor %}
 
-	<!-- paginação de resultados -->
-	<div class="pagination" style="text-align:center;">
-	    <span class="step-links">
-	        {% if lista_categorias.has_previous %}
-	            <a href="?page={{ lista_categorias.previous_page_number }}">anterior</a>
-	        {% endif %}
+		<div class="cat_desc">
+			<h3>{{ categoria.nome }},</h3>
+			<span class="num_filme">{{ categoria.filmes.count }} filmes!</span>
+			<div class="termometro clear">
+					<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
+					<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
+				</div>
+				
+				<p>
+				{{ categoria.resenha|slice:":140" }}
+				{% if categoria.resenha|length > 140 %}...{% endif %}
+				</p>
 
-	        <span class="current">
-	            Página {{ lista_categorias.number }} de {{ lista_categorias.paginator.num_pages }}.
-	        </span>
+<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
+		</div>
 
-	        {% if lista_categorias.has_next %}
-	            <a href="?page={{ lista_categorias.next_page_number }}">próxima</a>
-	        {% endif %}
-	    </span>
+		<a href="#" class="cat_gosto"><img src="{{ STATIC_URL }}img/gosto.png" alt="gosto" /></a>
+		<div class="cat_separador clear"></div>
 	</div>
+{% endfor %}
+
+<!-- paginação de resultados -->
+<div class="pagination" style="text-align:center;">
+    <span class="step-links">
+        {% if lista_categorias.has_previous %}
+            <a href="?page={{ lista_categorias.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ lista_categorias.number }} de {{ lista_categorias.paginator.num_pages }}.
+        </span>
+
+        {% if lista_categorias.has_next %}
+            <a href="?page={{ lista_categorias.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
 
 </div>
 
 <div class="catcol-02">
-	<div class="cat_menu">
-		<span>Categorias</span>
-		
-		<select>
-    		<option>a-m</option>
-    		<option>m-z</option>
-		</select>
-		
-		<ul>
-			{% for categoria in lista_categorias.object_list %}
-				<li><a href="#">{{ categoria }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
+<div class="cat_menu">
+	<span>Categorias</span>
+	
+	<select>
+		<option>a-m</option>
+		<option>m-z</option>
+	</select>
+	
+	<ul>
+		{% for categoria in lista_categorias.object_list %}
+			<li><a href="/categoria/{{ categoria.pk }}">{{ categoria }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
 </div>
 {% endblock %}

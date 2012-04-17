@@ -1,305 +1,137 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="language" content="pt-br" />
-<title>r3play</title>
-<link rel="stylesheet" type="text/css" href="css/estilos.css" />
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="css/ie7.css" />
-<![endif]-->
-<!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="css/ie8.css" />
-<![endif]-->
-</head>
+{% extends 'base.html' %}
 
-<body class="tipo-02 ">
-	<div class="header">
-		<div class="container">
-			<h1 title="r3play"><a href="index.html">r3play</a></h1>
-			<form action="" class="form search_form">
-			    <fieldset>
-               			<input type="text" value="usuário" class="search">
-               			<input type="image" src="img/btn_azul.png" alt="btn_azul" width="32" height="23" class="search_btn">
-       				 
-       			</fieldset>
-       		</form>
-		<div class="disclaimer">As vezes para fazer as coisas certas, devemos desistir dos nossos sonhos. <span class="disclaimer_autor">Homem Aranha 2</span></div>
+{%block titulo_da_pagina %}
+	Categoria {{ categoria.nome }}
+{% endblock %}
+
+{% block frase %}
+	 {{ frase.frase }} 
+	 <a href="/filme/{{ frase.id }}">
+	 	<span class="disclaimer_autor">{{ frase.filme }}</span>
+	</a>
+{% endblock %}
+
+{% block conteudo %}
+<div class="cat-col01">
+	<div class="cats_header">
+		<h2 class="catsh2">{{ categoria.nome }}</h2><span class="cat_add"><a href="#">adicionar</a></span>
+
+		<ul class="cats_menu">
+			<li><select>
+        				<option>GÊNERO</option>
+  					  </select></li>
+			<li><a href="#">Avaliação</a></li>
+			<li><a href="#">Data</a></li>
+			<li class="last"><a href="#">Todos</a></li>
+		</ul>
+
+		<div class="cats_aviso clear">
+			<p>Vote nos filmes que você já assistiu na seta azul ao lado da avaliação geral.</p>
 		</div>
 	</div>
-	<div class="content">
-		<div class="container">
-			<ul class="main_menu">
-				<li><a href="#">Filmes</a></li>
-				<li><a href="#">Categorias</a></li>
-				<li><a href="#">Artistas</a></li>
-				<li><a href="#">Usuários</a></li>
-				<li class="last"><a href="#">Cinemas</a></li>
-			</ul>
-			<div class="mn_flut">
-				<ul>
-					<li><a href="#"><img src="img/mn_flut_fechar.png" alt="Fechar" title="Fechar" width="33" height="22"/></a></li>
-					<li><a href="#"><img src="img/mn_flut_recado.png" alt="Recados" title="Recado" width="33" height="30"/></a></li>
-					<li><a href="#"><img src="img/mn_flut_opcoes.png" alt="Opções" title="Opções" width="33" height="30"/></a></li>
-					<li><a href="#"><img src="img/mn_flut_estatistica.png" alt="Estatísticas" title="Estatistica" width="33" height="30"/></a></li>
-				</ul>
-			</div>
-			<div class="cont-branco mn_branco">
-				<div class="cat-col01">
-					<div class="cats_header">
-					<h2 class="catsh2">SUPER HEROIS</h2><span class="cat_add"><a href="#">adicionar</a></span>
-					<ul class="cats_menu">
-						<li><select>
-                    				<option>GÊNERO</option>
-              					  </select></li>
-						<li><a href="#">Avaliação</a></li>
-						<li><a href="#">Data</a></li>
-						<li class="last"><a href="#">Todos</a></li>
-					</ul>
-					<div class="cats_aviso clear">
-						<p>Vote nos filmes que você já assistiu na seta azul ao lado da avaliação geral.</p>
-					</div>
-					</div>
-					<div class="filme">
-						<span class="filme_contador">1</span>
-						<img src="img/filme.jpg" alt="filme" class="capa_filme"/>
-						<div class="cat_desc">
-							<h3>Homem de Ferro</h3>
-							<span class="catg clear">2010 - Ação, Aventura</span>
-							<div class="acoes_filme">
-							<img src="img/favs.png" alt="favs" />
-							</div>
-							<a href="#" class="p_assistir">Pretendo Assistir</a>
-							<br/>
-       						<p class="filme_sinopse">Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança <a href="#">Leia mais</a></p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-						</div>
-						<div class="cat_separador clear"></div>
-					</div>
-					<div class="filme">
-						<span class="filme_contador">2</span>
-						<img src="img/filme.jpg" alt="filme" class="capa_filme"/>
-						<div class="cat_desc">
-							<h3>Homem de Ferro</h3>
-							<span class="catg clear">2010 - Ação, Aventura</span>
-							<div class="acoes_filme">
-							<img src="img/favs.png" alt="favs" />
-							</div>
-							<a href="#" class="p_assistir">Pretendo Assistir</a>
-							<br/>
-       						<p class="filme_sinopse">Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança <a href="#">Leia mais</a></p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-						</div>
-						<div class="cat_separador clear"></div>
-					</div>
-					<div class="filme">
-						<span class="filme_contador">3</span>
-						<img src="img/filme.jpg" alt="filme" class="capa_filme"/>
-						<div class="cat_desc">
-							<h3>Homem de Ferro</h3>
-							<span class="catg clear">2010 - Ação, Aventura</span>
-							<div class="acoes_filme">
-							<img src="img/favs.png" alt="favs" />
-							</div>
-							<a href="#" class="p_assistir">Pretendo Assistir</a>
-							<br/>
-       						<p class="filme_sinopse">Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança <a href="#">Leia mais</a></p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-						</div>
-						<div class="cat_separador clear"></div>
-					</div>
-					<div class="filme">
-						<span class="filme_contador">4</span>
-						<img src="img/filme.jpg" alt="filme" class="capa_filme"/>
-						<div class="cat_desc">
-							<h3>Homem de Ferro</h3>
-							<span class="catg clear">2010 - Ação, Aventura</span>
-							<div class="acoes_filme">
-							<img src="img/favs.png" alt="favs" />
-							</div>
-							<a href="#" class="p_assistir">Pretendo Assistir</a>
-							<br/>
-       						<p class="filme_sinopse">Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança <a href="#">Leia mais</a></p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-						</div>
-						<div class="cat_separador clear"></div>
-					</div>
-					<div class="filme">
-						<span class="filme_contador">5</span>
-						<img src="img/filme.jpg" alt="filme" class="capa_filme"/>
-						<div class="cat_desc">
-							<h3>Homem de Ferro</h3>
-							<span class="catg clear">2010 - Ação, Aventura</span>
-							<div class="acoes_filme">
-							<img src="img/favs.png" alt="favs" />
-							</div>
-							<a href="#" class="p_assistir">Pretendo Assistir</a>
-							<br/>
-       						<p class="filme_sinopse">Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança <a href="#">Leia mais</a></p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-						</div>
-						<div class="cat_separador clear"></div>
-					</div>
-					
-					<div class="cats_explore">
-						<h4>Explore outras categorias</h4>
-						<div class="explore_container">
-							<div class="categoria">
-								<div class="avatar_filme">
-									<a href="#"><img src="img/cat_cima.png" alt="cat_cima" width="29" height="19"/></a>
-									<img src="img/foto_filme.jpg" alt="foto_filme" width="186" height="155"/>
-									<a href="#"><img src="img/cat_baixo.png" alt="baixo" width="29" height="19"/></a>
-								</div>
-								<div class="cat_desc">
-								<h3>Super Herois,</h3>
-								<span class="num_filme">32 filmes!</span>
-								<div class="termometro clear">
-       								<img src="img/termometro.jpg" alt="termometro" width="135" height="11"/>
-       								<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
-       							</div>
-       							<p>Compartilhe com todos ou com grupos separados de amigos, 
-controlando quem vê o quê.  Conecte-se com seu melhor
-amigo, seu chefe e sua avó com confiança</p>
-<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
-							</div>
-							</div>
-							<a href="#" class="explore_seta_direita"><img src="img/ico_seta-direita.png" alt="ico_seta-direita" width="18" height="155"/></a>
-
-						</div> <!-- explore container !-->
-						</div>
-					<div class="interna_comments">
-						<h4 class="comente">Comente</h4>
-						<span class="num_comentarios">958 Comentários</span>
-						<form action="" class="form editar clear">
-			   			 	<fieldset class="area_post">
-								<span class="cont_caracteres">160</span>
-               					<textarea class="form-txt " cols="" rows=""></textarea>
-               					<input type="submit" value="Postar" title="postar" class=" btn_full">
-							</fieldset>
-						</form>
-						<div class="comentarios">
-						<img src="img/coment_topo.jpg" alt="coment_topo" width="561" height="5"/>
-						<div class="coment">
-							<span class="coment_avatar"><img src="img/avatar_coment.jpg" alt="Avatar" width="44" height="44"/></span>
-							<p><span class="nome_usuario">Breno Santos: </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dolor vitae nunc placerat aliquet. Nam tincidunt mi et tellus fermentum aliquam. Aenean iaculis lorem id lacus mattis vel ultricies velit auctor. Vivamus rhoncus, augue sit amet viverra venenatis, enim nisl lobortis sapien, ut elementum neque felis vitae dui.</p>
-							<div class="coment_acoes clear">
-								<ul class="coment_stars">
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-								</ul>
-								<span class="coment_data">January 7th</span>
-							</div>						
-					   </div>
-					   <div class="coment">
-							<span class="coment_avatar"><img src="img/avatar_coment.jpg" alt="Avatar" width="44" height="44"/></span>
-							<p><span class="nome_usuario">Breno Santos: </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dolor vitae nunc placerat aliquet. Nam tincidunt mi et tellus fermentum aliquam. Aenean iaculis lorem id lacus mattis vel ultricies velit auctor. Vivamus rhoncus, augue sit amet viverra venenatis, enim nisl lobortis sapien, ut elementum neque felis vitae dui.</p>
-							<div class="coment_acoes clear">
-								<ul class="coment_stars">
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-								</ul>
-								<span class="coment_data">January 7th</span>
-							</div>						
-					   </div>
-					   <div class="coment">
-							<span class="coment_avatar"><img src="img/avatar_coment.jpg" alt="Avatar" width="44" height="44"/></span>
-							<p><span class="nome_usuario">Breno Santos: </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet dolor vitae nunc placerat aliquet. Nam tincidunt mi et tellus fermentum aliquam. Aenean iaculis lorem id lacus mattis vel ultricies velit auctor. Vivamus rhoncus, augue sit amet viverra venenatis, enim nisl lobortis sapien, ut elementum neque felis vitae dui.</p>
-							<div class="coment_acoes clear">
-								<ul class="coment_stars">
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-									<li><img src="img/star.png" alt="star" width="15" height="13"/></li>
-								</ul>
-								<span class="coment_data">January 7th</span>
-							</div>						
-					   </div>
 	
-					</div>
-					<form action="" class="form editar clear">
-					<input type="submit" value="mais comentários" title="mais comentários" class=" btn_full mais_coment">
-					</form>
 
-				</div>
-				</div>
-				<div class="catcol-02">
-					<div class="pops">
-					<a href="#"><img src="img/ico_mn292.png" /></a>
-					<span>populares</span>
-					<a href="#"><img src="img/ico_mn293.png" /></a>
-					</div>
-					<div class="cat_menu">
-						<span>Categorias</span>
-						<select>
-                    				<option>a-m</option>
-              					  </select>
-						<ul>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-							<li><a href="#">Amor</a></li>
-							<li><a href="#">Drama</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="footer">
-				<p><a href="#">R3PLAY</a> | <a href="#">TERMOS DE PRIVACIDADE E USO</a> | <a href="#">CONTATO</a><br/>&copy; 2007/2011 | r3play.com. Todos os Direitos Reservados. Patente Requerida.</p>
-			</div>
-		</div>
+	{% for filme in lista_filmes %}
+	<div class="filme">
+		<span class="filme_contador">{{ forloop.counter }}</span>
 		
+		<img src="{{ filme.capa.url_115x170 }}" alt="{{ filme.titulo_nacional }}" class="capa_filme" width="115" height="170" />
+
+		<div class="cat_desc">
+			<h3>{{ filme.titulo_nacional }}</h3>
+			
+			<span class="catg clear">{{ filme.ano_lancamento }} - 
+				{% for genero in filme.genero.all %}
+					{% if forloop.last %}
+						{{ genero }}
+					{% else %}
+						{{ genero }}, 
+					{% endif %}
+				{% endfor %}
+			</span>
+
+			<div class="acoes_filme">
+				<img src="{{ STATIC_URL }}img/favs.png" alt="favs" />
+			</div>
+			
+			<a href="#" class="p_assistir">Pretendo Assistir</a>
+			
+			<br/>
+			
+			<p class="filme_sinopse">
+				{{ filme.sinopse|slice:":140" }}
+			{% if filme.sinopse|length > 140 %}...{% endif %}
+				<a href="/filme/{{ filme.pk }}">Leia mais</a>
+			</p>
+			
+			<a class="p_links" href="#">1529 membros</a>
+			<a class="p_links last" href="#">84 comentários</a>
+		</div>
+
+		<div class="cat_separador clear"></div>
 	</div>
-</body>
-</html>
+	{% endfor %}
+	
+	<div class="cats_explore">
+		<h4>Explore outras categorias</h4>
+		
+		<div class="explore_container">
+			<div class="categoria">
+				
+				<div class="avatar_filme">
+					<a href="#"><img src="{{ STATIC_URL }}img/cat_cima.png" alt="cat_cima" width="29" height="19"/></a>
+
+					<img src="{{ sugestao_categoria.foto.url_186x155 }}" width="186" height="155" />
+					
+					<a href="#"><img src="{{ STATIC_URL }}img/cat_baixo.png" alt="baixo" width="29" height="19"/></a>
+				</div>
+				
+				<div class="cat_desc">
+					<h3>{{ sugestao_categoria.nome }}</h3>
+					<span class="num_filme">{{ sugestao_categoria.filmes.count }}</span>
+					
+					<div class="termometro clear">
+							<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
+
+							<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
+						</div>
+
+						<p>
+						{{ sugestao_categoria.resenha|slice:":140" }}
+						{% if sugestao_categoria.resenha|length > 140 %}...{% endif %}
+						</p>
+
+<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
+				</div>
+
+			</div>
+			
+			<a href="/categoria/{{ sugestao_categoria.pk }}" class="explore_seta_direita"><img src="{{ STATIC_URL }}img/ico_seta-direita.png" alt="ico_seta-direita" width="18" height="155"/></a>
+		</div> <!-- explore container !-->
+	</div>
+
+</div>
+
+<div class="catcol-02">
+	<div class="pops">
+		<a href="#"><img src="{{ STATIC_URL }}img/ico_mn292.png" /></a>
+		<span>populares</span>
+		<a href="#"><img src="{{ STATIC_URL }}img/ico_mn293.png" /></a>
+	</div>
+
+	<div class="cat_menu">
+		<span>Categorias</span>
+		
+		<select>
+			<option>a-m</option>
+			<option>m-z</option>
+		</select>
+
+		<ul>
+		{% for categoria in lista_categorias %}
+			<li><a href="/categoria/{{ categoria.pk }}">{{ categoria }}</a></li>
+		{% endfor %}
+	</ul>
+	</div>
+</div>
+{% endblock %}

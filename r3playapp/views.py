@@ -14,6 +14,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from unidecode import unidecode
+import random
 
 
 util                            = Util()
@@ -164,6 +165,23 @@ def categorias(request):
                                                 "lista_categorias":     categorias,
                                                 "frase":                frase
                                             }, context_instance=RequestContext(request))
+
+def categoria(request, categoria_id):
+    categoria                   = get_object_or_404(Categorias, id=categoria_id)
+    lista_categorias            = Categorias.objects.all()
+    frase                       = util.frase_randomica() 
+    lista_filmes                = categoria.filmes.all().order_by('titulo_nacional')
+    index                       = int( random.random() * lista_categorias.count() )
+    sugestao_categoria          = lista_categorias[index]
+
+
+    return render_to_response('internas.html', {
+                                                'categoria':        categoria,
+                                                'frase':            frase,
+                                                'lista_filmes':     lista_filmes,
+                                                'lista_categorias': lista_categorias,
+                                                'sugestao_categoria': sugestao_categoria,
+        }, context_instance=RequestContext(request))
     
 def artistas(request):
     lista_artistas              = Artistas.objects.all()

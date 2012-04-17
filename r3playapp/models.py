@@ -69,7 +69,7 @@ class Filmes(models.Model):
     #frases                  = models.TextField(blank=True, verbose_name='Frase')
     trailer                 = models.TextField(blank=True, verbose_name='Trailer')
     #capa                    = models.ImageField(upload_to='upload/filmes/%Y/%m/%d') 
-    capa                    = ImageWithThumbsField( upload_to='upload/filmes/%Y/%m/%d', sizes=((124,184),(115,70)) )
+    capa                    = ImageWithThumbsField( upload_to='upload/filmes/%Y/%m/%d', sizes=((124,184),(115,170)) )
     origem                  = models.CharField(max_length = 50, choices=ORIGEM_ESCOLHAS, default='internacional')
     
     class Meta:
