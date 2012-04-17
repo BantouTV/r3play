@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block frase %}
-	 {{ frase.frase }} <span class="disclaimer_autor">{{ frase.filme }}</span>
+	 {{ frase.frase }} 
+	 <a href="/filme/{{ frase.id }}">
+	 	<span class="disclaimer_autor">{{ frase.filme }}</span>
+	</a>
 {% endblock %}
 
 {% block conteudo %}

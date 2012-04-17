@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block frase %}
-	 {{ frase.frase }} <span class="disclaimer_autor">{{ frase.filme }}</span>
+	 {{ frase.frase }} 
+	 <a href="/filme/{{ frase.id }}">
+	 	<span class="disclaimer_autor">{{ frase.filme }}</span>
+	</a>
 {% endblock %}
 
 {% block conteudo %}
@@ -29,15 +32,13 @@
 			</div>
 
 			<div class="cat_desc">
-				<h3>{{ categoria.nome }}</h3>
-				<span class="num_filme">{{ categoria.filmes.count }} filmes</span>
+				<h3>{{ categoria.nome }},</h3>
+				<span class="num_filme">{{ categoria.filmes.count }} filmes!</span>
 				<div class="termometro clear">
 						<img src="{{ STATIC_URL }}img/termometro.jpg" alt="termometro" width="135" height="11"/>
 						<span class="term_masc">67% Masc</span><span class="term_fem">23% Fem</span>
 					</div>
-					<p>Compartilhe com todos ou com grupos separados de amigos, 
-	controlando quem vê o quê.  Conecte-se com seu melhor
-	amigo, seu chefe e sua avó com confiança</p>
+					<p>{{ categoria.resenha }}</p>
 	<a class="p_links" href="#">1529 membros</a><a class="p_links last" href="#">84 comentários</a>
 			</div>
 

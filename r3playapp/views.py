@@ -150,9 +150,10 @@ def busca(request):
 def categorias(request):
     lista_categorias            = Categorias.objects.all()
     page                        = request.GET.get('page')
+    frase                       = util.frase_randomica()
 
     # paginando os resultados
-    paginator                   = Paginator(lista_categorias, 16) # mostra XX registros por pagina
+    paginator                   = Paginator(lista_categorias, 8) # mostra XX registros por pagina
     try:
         categorias              = paginator.page( page )
     except:
@@ -161,6 +162,7 @@ def categorias(request):
 
     return render_to_response('categorias.html', {
                                                 "lista_categorias":     categorias,
+                                                "frase":                frase
                                             }, context_instance=RequestContext(request))
     
 def artistas(request):

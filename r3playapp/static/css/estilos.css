@@ -116,7 +116,7 @@ h4.comente{color:#333333;font-size:1.1em;float:left;font-weight:normal;margin-bo
 .cat_desc{float:left;padding-top:15px;}
 .cat_desc h3{border:none;color:#333333;font-size:1.7em;text-transform:uppercase;float:left;margin:0 5px 5px 0}
 .cat_desc span.num_filme{color:#0066CC;float:left;font-size:1.5em;padding-top:2px;}
-.cat_desc p{margin-top:40px;font-size:0.8em;color:#888888;font-style:italic;width:303px;}
+.cat_desc p{margin-top:40px;font-size:0.9em;color:#888888;font-style:italic;width:303px;}
 .p_links{float:left;color:#0066cc;padding-right:5px;border-right:1px solid #0066cc;font-size:0.8em;font-weight:bold;margin-top:9px;}
 .cat_desc .last{padding-left:5px;}
 .cat_separador{height:11px;background: transparent url(../img/bg_cat_separador.png)}

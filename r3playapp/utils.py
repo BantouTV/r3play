@@ -13,7 +13,11 @@ class Util:
     def frase_randomica(self):
         lista_frases            = Frases.objects.all()
         frase_aleatoria         = choice(lista_frases)
-        dados_escolhidos        = {'frase': frase_aleatoria.frase, 'filme': frase_aleatoria.filmes.all()[0]}
+        dados_escolhidos        = {
+                                    'frase':    frase_aleatoria.frase, 
+                                    'filme':    frase_aleatoria.filmes.all()[0],
+                                    'id':       frase_aleatoria.filmes.all()[0].pk
+                                }
         
         return dados_escolhidos
         
