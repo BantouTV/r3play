@@ -6,6 +6,7 @@ from r3play.r3playapp.models import Artistas
 from r3play.r3playapp.models import Diretores
 from r3play.r3playapp.models import Generos
 from r3play.r3playapp.models import Cinemas
+from r3play.r3playapp.models import Categorias
 from r3play.r3playapp.utils import Util
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
@@ -147,7 +148,20 @@ def busca(request):
                                                     }, context_instance=RequestContext(request))
     
 def categorias(request):
-    return HttpResponse("Categorias!")
+    lista_categorias            = Categorias.objects.all()
+    page                        = request.GET.get('page')
+
+    # paginando os resultados
+    paginator                   = Paginator(lista_categorias, 16) # mostra XX registros por pagina
+    try:
+        categorias              = paginator.page( page )
+    except:
+        categorias              = paginator.page( 1 )
+
+
+    return render_to_response('categorias.html', {
+                                                "lista_categorias":     categorias,
+                                            }, context_instance=RequestContext(request))
     
 def artistas(request):
     lista_artistas              = Artistas.objects.all()

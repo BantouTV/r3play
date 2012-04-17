@@ -64,8 +64,8 @@
 						</a>
 						<span>
 							<b><a href="/diretor/{{filme.pk}}">
-								{{ filme.titulo_nacional|slice:":16" }}
-									{% if filme.titulo_nacional|length > 16 %}...{% endif %}
+								{{ filme.titulo_nacional|slice:":14" }}
+									{% if filme.titulo_nacional|length > 14 %}...{% endif %}
 							</a>
 							</b>
 							<span>{{ filme.genero.all|first }}</span>
