@@ -150,6 +150,11 @@ def busca(request):
     
 def categorias(request):
     lista_categorias            = Categorias.objects.all().order_by('nome')
+    
+    # TODO filtrar de A até M
+    lista_categorias_filtro     = Categorias.objects.all().order_by('nome')
+    print '#####################', lista_categorias_filtro.filter(nome__istartswith='a')
+
     page                        = request.GET.get('page')
     frase                       = util.frase_randomica()
 
