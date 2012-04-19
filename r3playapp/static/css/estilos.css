@@ -26,7 +26,7 @@ a:focus{outline:0;}
 .grid-01{width:855px;overflow:hidden;}
 
 .cont-branco{background:#FFF;-moz-border-radius:10px;border-radius:10px;padding:40px; color:#666;}
-.cont-branco div.cat_menu select{color:#cacaca;}
+.cont-branco div.cat_menu select{color:#cacaca;margin:0px 0 5px;}
 .cont-cinza{background:#e2e2e2 url(../img/bg_cadastrobox.png) right top no-repeat;padding:30px 44px;-moz-border-radius:10px;border-radius:10px;}
 
 .novo_usuario{color:#0066cc;font-size:0.9em}
@@ -117,7 +117,7 @@ h4.comente{color:#333333;font-size:1.1em;float:left;font-weight:normal;margin-bo
 .cat_desc{float:left;padding-top:15px;}
 .cat_desc h3{border:none;color:#333333;font-size:1.7em;text-transform:uppercase;float:left;margin:0 5px 5px 0}
 .cat_desc span.num_filme{color:#0066CC;float:left;font-size:1.5em;padding-top:2px;}
-.cat_desc p{margin-top:40px;font-size:0.9em;color:#888888;font-style:italic;width:303px;line-height:16px;}
+.cat_desc p{margin-top:15px;font-size:0.9em;color:#888888;font-style:italic;width:245px;line-height:16px;}
 .p_links{float:left;color:#0066cc;padding-right:5px;border-right:1px solid #0066cc;font-size:0.8em;font-weight:bold;margin-top:9px;}
 .cat_desc .last{padding-left:5px;}
 .cat_separador{height:11px;background: transparent url(../img/bg_cat_separador.png)}
