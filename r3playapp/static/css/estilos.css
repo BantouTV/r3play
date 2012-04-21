@@ -141,9 +141,9 @@ h4.comente{color:#333333;font-size:1.1em;float:left;font-weight:normal;margin-bo
 
 .filme_contador{float:left;border:1px dotted #c2c2c2;color:#0066cc;padding:5px 10px;margin-top:15px;font-weight:bold;margin-right:8px;}
 .capa_filme{margin-right:28px;float:left;margin-top:15px;}
-.filme .cat_desc h3{font-size:1.5em;text-transform:none;float:none}
+.filme .cat_desc h3{font-size:1.4em;text-transform:none;float:none}
 .filme .catg{font-size:1em;color:#333333;font-style:normal;display:block;margin-bottom:13px;}
-.cat_desc .filme_sinopse{margin-top:30px;width:463px;font-style:normal;font-size:0.9em;line-height:1.5em;}
+.cat_desc .filme_sinopse{margin-top:30px;width:438px;font-style:normal;font-size:0.9em;line-height:1.5em;}
 .filme .p_links{margin-bottom:30px;}
 .pops{background: transparent url(../img/bg_mne92.png) repeat-x;height:42px;margin-bottom:5px;}
 .pops span{width:99px;text-align:center;line-height:42px;display:block}
