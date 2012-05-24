@@ -35,7 +35,9 @@
 	<div class="filme">
 		<span class="filme_contador">{{ forloop.counter }}</span>
 		
+		<a href="/filme/{{ filme.pk }}">
 		<img src="{{ filme.capa.url_115x170 }}" alt="{{ filme.titulo_nacional }}" class="capa_filme" width="115" height="170" />
+		</a>
 
 		<div class="cat_desc">
 			<h3>{{ filme.titulo_nacional }}</h3>
