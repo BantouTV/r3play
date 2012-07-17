@@ -52,7 +52,7 @@ def home(request):
 
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
-                                        'frase':                        'frase',
+                                        'frase':                        frase,
                                         'lista_generos':                lista_generos,
                                         'anos':                         anos,
                                         'tipo':                         filtro_tipo
