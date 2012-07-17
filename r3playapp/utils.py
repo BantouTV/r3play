@@ -19,6 +19,9 @@ class Util:
                                     'id':       frase_aleatoria.filmes.all()[0].pk
                                 }
         
+        print frase_aleatoria
+        print dados_escolhidos
+
         return dados_escolhidos
         
     def lista_paises(lista, self):
