@@ -26,7 +26,8 @@ def index(request):
     return render_to_response('index.html')
 
 def home(request):
-    frase                       = util.frase_randomica()
+    #frase                       = util.frase_randomica()
+    frase                       = ' '
     filtro_genero               = request.GET.get('genero', '')
     filtro_ano                  = request.GET.get('ano', '')
     filtro_tipo                 = request.GET.get('tipo', '')
