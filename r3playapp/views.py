@@ -26,7 +26,7 @@ def index(request):
     return render_to_response('index.html')
 
 def home(request):
-    frase                       = util.frase_randomica()
+    #frase                       = util.frase_randomica()
     filtro_genero               = request.GET.get('genero', '')
     filtro_ano                  = request.GET.get('ano', '')
     filtro_tipo                 = request.GET.get('tipo', '')
@@ -56,7 +56,7 @@ def home(request):
 
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
-                                        'frase':                        frase,
+                                        'frase':                        'frase',
                                         'lista_generos':                lista_generos,
                                         'anos':                         anos,
                                         'tipo':                         filtro_tipo
