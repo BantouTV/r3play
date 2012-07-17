@@ -26,13 +26,13 @@ def index(request):
     return render_to_response('index.html')
 
 def home(request):
-    #frase                       = util.frase_randomica()
-    frase                       = ' '
+    frase                       = util.frase_randomica()
     filtro_genero               = request.GET.get('genero', '')
     filtro_ano                  = request.GET.get('ano', '')
     filtro_tipo                 = request.GET.get('tipo', '')
     
     # filtrando os resultados
+    '''
     if filtro_genero:
         if filtro_genero == 'todos':
             lista_ultimos_filmes            = Filmes.objects.all()[:15]
@@ -50,7 +50,9 @@ def home(request):
             lista_ultimos_filmes            = Filmes.objects.all().filter(tipo__contains = filtro_tipo)[:15]
     else:
         lista_ultimos_filmes                = Filmes.objects.all()[:15]
+    '''
 
+    lista_ultimos_filmes                = Filmes.objects.all()
 
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
