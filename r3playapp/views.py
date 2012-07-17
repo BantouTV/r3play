@@ -52,7 +52,7 @@ def home(request):
         lista_ultimos_filmes                = Filmes.objects.all()[:15]
     '''
 
-    lista_ultimos_filmes                = Filmes.objects.all()
+    lista_ultimos_filmes                = Artistas.objects.all()
 
     return render_to_response('home.html', {
                                         'lista_ultimos_filmes':         lista_ultimos_filmes, 
